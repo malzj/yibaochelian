@@ -237,8 +237,7 @@
 
         
         
-        NSLog(@"下拉");
-    }else{
+        }else{
         
               [self.viewWatchBig removeFromSuperview];
           self.buttonViewDown.frame = CGRectMake(0, 64, WIDTH, 47);
