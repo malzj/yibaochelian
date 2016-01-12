@@ -261,17 +261,25 @@
 {
         NSLog(@"button");
    
-    if (self.arraaaa == nil) {
-        NSLog(@"kong");
-    }else{
+//    if (self.arraaaa == nil) {
+//        NSLog(@"kong");
+//    }else{
+//        self.tableViewLeftMassage.dataSource = self;
+//        self.tableViewLeftMassage.delegate = self;
+//        self.tableViewLeftMassage = [[UITableView alloc]initWithFrame:CGRectMake(0, 240, WIDTH, 300) style:UITableViewStylePlain];
+//        [self.view addSubview:self.tableViewLeftMassage];
+//        self.tableViewLeftMassage.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    }
+    
+
         self.tableViewLeftMassage.dataSource = self;
         self.tableViewLeftMassage.delegate = self;
         self.tableViewLeftMassage = [[UITableView alloc]initWithFrame:CGRectMake(0, 240, WIDTH, 300) style:UITableViewStylePlain];
         [self.view addSubview:self.tableViewLeftMassage];
         self.tableViewLeftMassage.separatorStyle = UITableViewCellSeparatorStyleNone;
-    }
-    
 
+    
+    
 }
 
 
