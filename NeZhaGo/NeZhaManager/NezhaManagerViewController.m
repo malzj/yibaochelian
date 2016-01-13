@@ -41,6 +41,8 @@
 //    [self createButton];
 //    [self createLabel];
 //    [self createConditionView];
+    self.title = @"哪吒管家";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]}];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回按钮"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeft:)];
     
     
@@ -479,9 +481,16 @@
     UIButton *btnSOS = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton *btnPQ = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [btnOKS setImage:[UIImage imageNamed:@"一键服务.png"] forState:UIControlStateNormal];
-    [btnSOS setImage:[UIImage imageNamed:@"SOS.png"] forState:UIControlStateNormal];
-    [btnPQ setImage:[UIImage imageNamed:@"进度查询.png"] forState:UIControlStateNormal];
+    [btnOKS setImage:[UIImage imageNamed:@"一键服务"] forState:UIControlStateNormal];
+    [btnSOS setImage:[UIImage imageNamed:@"SOS"] forState:UIControlStateNormal];
+    [btnPQ setImage:[UIImage imageNamed:@"进度查询"] forState:UIControlStateNormal];
+    
+    btnOKS.tag = 100;
+    btnSOS.tag = 101;
+    btnPQ.tag = 102;
+    [btnOKS addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    [btnSOS addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    [btnPQ addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     
     [_btnZoneView addSubview:btnOKS];
     [_btnZoneView addSubview:btnSOS];
