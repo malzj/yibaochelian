@@ -10,4 +10,6 @@
 
 @interface NezhaManagerViewController : UIViewController
 
+@property (nonatomic, weak)UIView *upView;  //模糊板
+
 @end
