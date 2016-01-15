@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13027B4B1C47278A0091C5E5 /* LeftSheZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13027B4A1C47278A0091C5E5 /* LeftSheZhiViewController.m */; };
+		13027B4E1C472E600091C5E5 /* LeftSheZhiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13027B4D1C472E600091C5E5 /* LeftSheZhiCollectionCell.m */; };
+		13027B511C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13027B501C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m */; };
 		133F0ACA1C3C1955006CB443 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0AC91C3C1955006CB443 /* main.m */; };
 		133F0ACD1C3C1955006CB443 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0ACC1C3C1955006CB443 /* AppDelegate.m */; };
 		133F0AD01C3C1955006CB443 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0ACF1C3C1955006CB443 /* ViewController.m */; };
@@ -24,6 +27,10 @@
 		133F0B391C3C9D2F006CB443 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0B381C3C9D2F006CB443 /* LeftViewController.m */; };
 		133F0B3C1C3CAF0C006CB443 /* MyMassageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0B3B1C3CAF0C006CB443 /* MyMassageViewController.m */; };
 		133F0B3F1C3CAF8C006CB443 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0B3E1C3CAF8C006CB443 /* LeftTableViewCell.m */; };
+		138F074B1C45F3F2003FA643 /* LeftMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138F074A1C45F3F2003FA643 /* LeftMoneyViewController.m */; };
+		13A26E3C1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */; };
+		13B4D72C1C4886B1003AA5A8 /* CarMassageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B4D72B1C4886B1003AA5A8 /* CarMassageViewController.m */; };
+		13B4D72F1C488879003AA5A8 /* CarTianJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B4D72E1C488879003AA5A8 /* CarTianJiaViewController.m */; };
 		13C105A71C44C659008B19D9 /* TourManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C1059A1C44C659008B19D9 /* TourManagerViewController.m */; };
 		13C105A81C44C659008B19D9 /* BasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C1059D1C44C659008B19D9 /* BasicInfoView.m */; };
 		13C105A91C44C659008B19D9 /* RecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C105A01C44C659008B19D9 /* RecordView.m */; };
@@ -70,6 +77,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13027B491C47278A0091C5E5 /* LeftSheZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSheZhiViewController.h; sourceTree = "<group>"; };
+		13027B4A1C47278A0091C5E5 /* LeftSheZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSheZhiViewController.m; sourceTree = "<group>"; };
+		13027B4C1C472E600091C5E5 /* LeftSheZhiCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSheZhiCollectionCell.h; sourceTree = "<group>"; };
+		13027B4D1C472E600091C5E5 /* LeftSheZhiCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSheZhiCollectionCell.m; sourceTree = "<group>"; };
+		13027B4F1C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSheZhiSecondCollectionCell.h; sourceTree = "<group>"; };
+		13027B501C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSheZhiSecondCollectionCell.m; sourceTree = "<group>"; };
 		133F0AC51C3C1955006CB443 /* NeZhaCarss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeZhaCarss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		133F0AC91C3C1955006CB443 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		133F0ACB1C3C1955006CB443 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +117,14 @@
 		133F0B3B1C3CAF0C006CB443 /* MyMassageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMassageViewController.m; sourceTree = "<group>"; };
 		133F0B3D1C3CAF8B006CB443 /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
 		133F0B3E1C3CAF8C006CB443 /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
+		138F07491C45F3F2003FA643 /* LeftMoneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMoneyViewController.h; sourceTree = "<group>"; };
+		138F074A1C45F3F2003FA643 /* LeftMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMoneyViewController.m; sourceTree = "<group>"; };
+		13A26E3A1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSheZhiFirstPageCollectionViewCell.h; sourceTree = "<group>"; };
+		13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSheZhiFirstPageCollectionViewCell.m; sourceTree = "<group>"; };
+		13B4D72A1C4886B1003AA5A8 /* CarMassageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarMassageViewController.h; sourceTree = "<group>"; };
+		13B4D72B1C4886B1003AA5A8 /* CarMassageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarMassageViewController.m; sourceTree = "<group>"; };
+		13B4D72D1C488879003AA5A8 /* CarTianJiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTianJiaViewController.h; sourceTree = "<group>"; };
+		13B4D72E1C488879003AA5A8 /* CarTianJiaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTianJiaViewController.m; sourceTree = "<group>"; };
 		13C105991C44C659008B19D9 /* TourManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourManagerViewController.h; sourceTree = "<group>"; };
 		13C1059A1C44C659008B19D9 /* TourManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourManagerViewController.m; sourceTree = "<group>"; };
 		13C1059C1C44C659008B19D9 /* BasicInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfoView.h; sourceTree = "<group>"; };
@@ -358,6 +379,14 @@
 				13E14BFD1C43320800FCA575 /* LeftMapViewController.m */,
 				13E14C051C43A1E500FCA575 /* LeftAboutViewController.h */,
 				13E14C061C43A1E500FCA575 /* LeftAboutViewController.m */,
+				138F07491C45F3F2003FA643 /* LeftMoneyViewController.h */,
+				138F074A1C45F3F2003FA643 /* LeftMoneyViewController.m */,
+				13027B491C47278A0091C5E5 /* LeftSheZhiViewController.h */,
+				13027B4A1C47278A0091C5E5 /* LeftSheZhiViewController.m */,
+				13B4D72A1C4886B1003AA5A8 /* CarMassageViewController.h */,
+				13B4D72B1C4886B1003AA5A8 /* CarMassageViewController.m */,
+				13B4D72D1C488879003AA5A8 /* CarTianJiaViewController.h */,
+				13B4D72E1C488879003AA5A8 /* CarTianJiaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -382,6 +411,12 @@
 				13C105D51C44DEAB008B19D9 /* LeftThirdCollectionViewcell.m */,
 				13C105D71C44DED5008B19D9 /* LeftFouthCollectionViewcell.h */,
 				13C105D81C44DED5008B19D9 /* LeftFouthCollectionViewcell.m */,
+				13027B4C1C472E600091C5E5 /* LeftSheZhiCollectionCell.h */,
+				13027B4D1C472E600091C5E5 /* LeftSheZhiCollectionCell.m */,
+				13027B4F1C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.h */,
+				13027B501C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m */,
+				13A26E3A1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.h */,
+				13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,6 +828,7 @@
 				13C105CA1C44D844008B19D9 /* NezhaManagerViewController.m in Sources */,
 				133F0B331C3C9BEC006CB443 /* BaseTableViewCell.m in Sources */,
 				13C105CD1C44D844008B19D9 /* TuningViewController.m in Sources */,
+				13027B511C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m in Sources */,
 				133F0AD01C3C1955006CB443 /* ViewController.m in Sources */,
 				133F0B3C1C3CAF0C006CB443 /* MyMassageViewController.m in Sources */,
 				13C105D21C44D844008B19D9 /* MetalViewController.m in Sources */,
@@ -804,13 +840,17 @@
 				133F0B291C3C9BA1006CB443 /* LeftSlideViewController.m in Sources */,
 				133F0B361C3C9C00006CB443 /* BaseCollectionViewCell.m in Sources */,
 				13C105CC1C44D844008B19D9 /* OneKeyServiceViewController.m in Sources */,
+				13027B4E1C472E600091C5E5 /* LeftSheZhiCollectionCell.m in Sources */,
 				133F0B301C3C9BD8006CB443 /* BaseModel.m in Sources */,
 				13E14BF81C3FB34500FCA575 /* LeftSecondCollectionViewcell.m in Sources */,
 				133F0ACD1C3C1955006CB443 /* AppDelegate.m in Sources */,
 				133F0B2A1C3C9BA1006CB443 /* UIView_extra.m in Sources */,
 				13E14C071C43A1E500FCA575 /* LeftAboutViewController.m in Sources */,
+				13B4D72F1C488879003AA5A8 /* CarTianJiaViewController.m in Sources */,
 				13C105AA1C44C659008B19D9 /* AlarmView.m in Sources */,
+				13027B4B1C47278A0091C5E5 /* LeftSheZhiViewController.m in Sources */,
 				13C105D61C44DEAB008B19D9 /* LeftThirdCollectionViewcell.m in Sources */,
+				13B4D72C1C4886B1003AA5A8 /* CarMassageViewController.m in Sources */,
 				13C105D01C44D844008B19D9 /* FixViewController.m in Sources */,
 				13C105CB1C44D844008B19D9 /* SOSViewController.m in Sources */,
 				13C105CE1C44D844008B19D9 /* MaintenanceViewController.m in Sources */,
@@ -822,9 +862,11 @@
 				13C105D91C44DED5008B19D9 /* LeftFouthCollectionViewcell.m in Sources */,
 				13E14BFE1C43320800FCA575 /* LeftMapViewController.m in Sources */,
 				13C105A81C44C659008B19D9 /* BasicInfoView.m in Sources */,
+				13A26E3C1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m in Sources */,
 				133F0B2D1C3C9BC6006CB443 /* BaseViewController.m in Sources */,
 				13EEAC0C1C3E08A2006989BD /* MapTableViewCell.m in Sources */,
 				13EEAC8C1C3F6983006989BD /* LeftMassageCollectionViewCell.m in Sources */,
+				138F074B1C45F3F2003FA643 /* LeftMoneyViewController.m in Sources */,
 				13EEAC891C3F577E006989BD /* LeftMassageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

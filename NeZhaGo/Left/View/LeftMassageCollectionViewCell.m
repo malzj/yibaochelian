@@ -9,7 +9,11 @@
 #import "LeftMassageCollectionViewCell.h"
 
 
+@interface LeftMassageCollectionViewCell ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic ,strong)UITableView *tableSearch;
+
+@end
 
 
 
@@ -31,9 +35,6 @@
     self.viewWhite = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 375, 130)];
     self.viewWhite.backgroundColor = [UIColor whiteColor];
     
-    
-    
-    
     self.labelDateStart = [[UILabel alloc]initWithFrame:CGRectMake(30, 37, 135, 30)];
     self.labelDateStart.backgroundColor = [UIColor grayColor];
     self.labelDateStart.layer.backgroundColor = [UIColor whiteColor].CGColor;
@@ -45,9 +46,6 @@
     self.labelDateStart.textAlignment = NSTextAlignmentCenter;
     self.labelDateStart.textColor = [UIColor grayColor];
 
-    
-    
-    
     self.buttonStart = [UIButton buttonWithType:UIButtonTypeSystem];
     self.buttonStart.backgroundColor = [UIColor clearColor];
     self.buttonStart.frame = self.labelDateStart.frame;
@@ -76,10 +74,8 @@
    
     [self.buttonEnd addTarget:self action:@selector(clickbuttonEnd:) forControlEvents:UIControlEventTouchUpInside];
     
-    
      [self.buttonStart addTarget:self action:@selector(clickbuttonStart:) forControlEvents:UIControlEventTouchUpInside];
     
-      
     self.labelCong = [[UILabel alloc]initWithFrame:CGRectMake(5, 42, 30, 20)];
     self.labelCong.textColor = [UIColor grayColor];
     self.labelCong.font = [UIFont systemFontOfSize:13];
@@ -90,9 +86,6 @@
     self.labelDao.font = [UIFont systemFontOfSize:13];
     [self.viewWhite addSubview:self.labelDao];
     
-        
-    
-    
     
     
     self.buttonSearch =[UIButton buttonWithType:UIButtonTypeSystem];
@@ -102,22 +95,66 @@
     [self.buttonSearch setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.viewWhite addSubview:self.buttonSearch];
     
-//    [self.buttonSearch addTarget:self action:@selector(clickSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.buttonSearch addTarget:self action:@selector(clickSearch:) forControlEvents:UIControlEventTouchUpInside];
 
 
 }
 
+- (UITableView *)tableSearch
+{
+    if (!_tableSearch) {
+        
+        _tableSearch = [[UITableView alloc]initWithFrame:CGRectMake(0, 160, 375, 300) style:UITableViewStylePlain];
+        
+        
+        
+    }
+    return _tableSearch;
+}
 
 
+- (void)clickSearch:(UIButton *)button
+{
+    NSLog(@"search");
+    _tableSearch.frame = CGRectMake(0, 160, 375, 300);
+    [self addSubview:self.tableSearch];
+    _tableSearch.dataSource = self;
+    _tableSearch.delegate = self;
+    
+    
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
 
-
-
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *reusede = @"reusede";
+    UITableViewCell *celled = [tableView dequeueReusableCellWithIdentifier:reusede];
+    if (!celled) {
+        celled = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusede];
+    }
+    
+    
+    
+    
+    return celled;
+}
 
 
 #warning ------日期
 - (void)clickbuttonStart:(UIButton *)button
 {
+    if (self.dateView) {
+        [self.dateView removeFromSuperview];
+    }
+    
+    if (self.dateViewEnd) {
+        [self.dateViewEnd removeFromSuperview];
+    }
+    
     NSDate *date = [NSDate date];
     NSLog(@"start");
     self.dateView = [[UIView alloc] initWithFrame:CGRectMake(0, 150 , 375, 300)];
@@ -132,15 +169,13 @@
     [self.datePickerStart setDate:date animated:YES];
     [self.dateView addSubview:self.datePickerStart];
     
-    
-    
     self.buttonStartOver = [UIButton buttonWithType:UIButtonTypeSystem];
     self.buttonStartOver.frame = CGRectMake(280, 30, 70, 30);
     [self.buttonStartOver setTitle:@"over" forState:UIControlStateNormal];
     [self.buttonStartOver addTarget:self action:@selector(clickStartOver:) forControlEvents:UIControlEventTouchUpInside];
     [self.dateView addSubview:self.buttonStartOver];
     
-    
+    [self bringSubviewToFront:self.dateView];
     
 }
 
@@ -148,7 +183,7 @@
 {
     NSLog(@"完成");
     
-    NSDate *currDate = [self.datePickerEnd date];
+    NSDate *currDate = [self.datePickerStart date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"YYYY-MM-dd";
     
@@ -165,11 +200,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 - (void)clickbuttonEnd:(UIButton *)button
 {
     
     NSLog(@"end");
+    if (self.dateView) {
+        [self.dateView removeFromSuperview];
+    }
     
+    if (self.dateViewEnd) {
+        [self.dateViewEnd removeFromSuperview];
+    }
     
     self.dateViewEnd = [[UIView alloc]initWithFrame:CGRectMake(0, 150 , 375, 300)];
     
@@ -194,17 +245,15 @@
     [self.dateViewEnd addSubview:self.buttonEndOver];
     
     
-    
+    [self bringSubviewToFront:self.dateViewEnd];
 }
-
-
 
 - (void)clickbuttonED:(UIButton *)button
 {
     NSLog(@"endOver");
     
     
-    NSDate *currDate = [self.datePickerStart date];
+    NSDate *currDate = [self.datePickerEnd date];
     // 得到当前的DatePicker的选中的时间
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"YYYY-MM-dd";

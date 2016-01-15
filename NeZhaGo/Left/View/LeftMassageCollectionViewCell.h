@@ -8,7 +8,7 @@
 
 #import "BaseCollectionViewCell.h"
 
-@interface LeftMassageCollectionViewCell : BaseCollectionViewCell
+@interface LeftMassageCollectionViewCell : BaseCollectionViewCell<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic ,strong)UIView *viewWhite;
 @property (nonatomic ,strong)UILabel *labelDao;
 @property (nonatomic ,strong)UILabel *labelDateStart;
@@ -17,11 +17,7 @@
 @property (nonatomic ,strong)UILabel *labelCong;
 @property (nonatomic ,strong)UIButton *buttonStart;
 @property (nonatomic ,strong)UIButton *buttonEnd;
-
-
-
-
-
+@property (nonatomic, strong)UITableView *tableViewLeftMassage;
 
 @property (nonatomic ,strong)UIDatePicker *datePickerStart;
 @property (nonatomic ,strong)UIDatePicker *datePickerEnd;
@@ -30,8 +26,6 @@
 
 @property (nonatomic ,strong)UIView *dateView;
 @property (nonatomic ,strong)UIView *dateViewEnd;
-//@property (nonatomic ,strong)UILabel *inLabel;
-//@property (nonatomic ,strong)UILabel *outLabel;
 
 
 

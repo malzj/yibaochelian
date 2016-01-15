@@ -16,9 +16,10 @@
 #define HEIGHT self.view.bounds.size.height
 #import "LeftMassageViewController.h"
 #import "LeftAboutViewController.h"
-
-
+#import "LeftMoneyViewController.h"
+#import "LeftSheZhiViewController.h"
 #import "JumpPage.h"
+#import "CarMassageViewController.h"
 @interface LeftViewController ()
 @property (nonatomic ,strong)UIImageView *imageViewLeft;
 //@property (nonatomic ,strong)UITableView *tableViewLeft;
@@ -183,48 +184,12 @@
     _labelBack.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     _labelBack.text = @"注销";
     [_buttonBack addSubview:_labelBack];
-//    _viewOverCar = [UIView new];
-//    _viewOverCar.frame = CGRectMake(0, 497, 275, 46);
-//    _viewOverCar.backgroundColor = [UIColor grayColor];
-//    [self.view addSubview:_viewOverCar];
-//    _labelOver = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 60, 30)];
-//    _labelOver.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
-//    _labelOver.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelOver];
-//    _labelOver.text = @"全部车辆";
-//    
-//    _labelNumber = [[UILabel alloc]initWithFrame:CGRectMake(40, 20, 50, 30)];
-//    _labelNumber.textColor = [UIColor colorWithRed:255/255.0 green:169/255.0 blue:47/255.0 alpha:1];
-//    _labelNumber.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelNumber];
-//    _labelNumber.text = @"138辆";
-//    _labelOnline = [[UILabel alloc]initWithFrame:CGRectMake(110, 0, 60, 30)];
-//    _labelOnline.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
-//    _labelOnline.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelOnline];
-//    _labelOnline.text = @"在线车辆";
-//    _labelNumberSecond = [[UILabel alloc]initWithFrame:CGRectMake(120, 20, 50, 30)];
-//    _labelNumberSecond.textColor = [UIColor colorWithRed:255/255.0 green:169/255.0 blue:47/255.0 alpha:1];    _labelNumberSecond.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelNumberSecond];
-//    _labelNumberSecond.text = @"100辆";
-//    
-//    _labelLeave = [[UILabel alloc]initWithFrame:CGRectMake(190, 0, 60, 30)];
-//    _labelLeave.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
-//    _labelLeave.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelLeave];
-//    _labelLeave.text = @"离线车辆";
-//    
-//    _labelNumberThird = [[UILabel alloc]initWithFrame:CGRectMake(200, 20, 50, 30)];
-//    _labelNumberThird.textColor = [UIColor colorWithRed:255/255.0 green:169/255.0 blue:47/255.0 alpha:1];
-//    _labelNumberThird.font = [UIFont systemFontOfSize:13];
-//    [_viewOverCar addSubview:_labelNumberThird];
-//    _labelNumberThird.text = @"38辆";
- 
+
 }
 
 - (void)clickButtonPhoto:(UIButton *)button
 {
-   
+    
 }
 
 
@@ -245,6 +210,11 @@
 - (void)clickcar:(UIButton *)button
 {
     NSLog(@"车辆信息");
+    CarMassageViewController *carMC = [CarMassageViewController new];
+    [JumpPage shareJumpPage].block(carMC);
+
+    
+    
 }
 
 - (void)clickGuanyu:(UIButton *)button
@@ -257,11 +227,21 @@
 - (void)clickShezhi:(UIButton *)button
 {
     NSLog(@"设置");
+    
+    LeftSheZhiViewController *leftSheZhi = [LeftSheZhiViewController new];
+    [JumpPage shareJumpPage].block(leftSheZhi);
+    
 }
 
 - (void)clickMoney:(UIButton *)button
 {
     NSLog(@"充值");
+    LeftMoneyViewController *leftMoney = [LeftMoneyViewController new];
+    
+    [JumpPage shareJumpPage].block(leftMoney);
+    
+    
+    
 }
 
 - (void)clickBack:(UIButton *)button
