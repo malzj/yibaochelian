@@ -93,7 +93,7 @@
     [_buttonMassage addTarget:self action:@selector(clickMassage:) forControlEvents:UIControlEventTouchUpInside];
     _imageMassage = [[UIImageView alloc]initWithFrame:CGRectMake(70, 5, 25, 25)];
     [_buttonMassage addSubview:_imageMassage];
-    [_imageMassage setImage:[UIImage imageNamed:@"我的消息图标-0"]];
+    [_imageMassage setImage:[UIImage imageNamed:@"我的消息图标"]];
     _labelMassage = [UILabel new];
     _labelMassage.frame = CGRectMake(105, 5, 100, 30);
     _labelMassage.font = [UIFont systemFontOfSize:14];
@@ -107,7 +107,7 @@
     [_buttonMap addTarget:self action:@selector(clickMap:) forControlEvents:UIControlEventTouchUpInside];
     _imageMap = [[UIImageView alloc]initWithFrame:CGRectMake(70, 5, 25, 25)];
     [_buttonMap addSubview:_imageMap];
-    [_imageMap setImage:[UIImage imageNamed:@"离线地图图标-0"]];
+    [_imageMap setImage:[UIImage imageNamed:@"离线地图图标"]];
     _labelMap = [UILabel new];
     _labelMap.frame = CGRectMake(105, 5, 100, 30);
     _labelMap.font = [UIFont systemFontOfSize:14];
@@ -121,7 +121,7 @@
     [_buttonCar addTarget:self action:@selector(clickcar:) forControlEvents:UIControlEventTouchUpInside];
     _imageCar = [[UIImageView alloc]initWithFrame:CGRectMake(70, 5, 25, 25)];
     [_buttonCar addSubview:_imageCar];
-    [_imageCar setImage:[UIImage imageNamed:@"车辆信息图标-0"]];
+    [_imageCar setImage:[UIImage imageNamed:@"车辆信息图标"]];
     _labelCar = [UILabel new];
     _labelCar.frame = CGRectMake(105, 5, 100, 30);
     _labelCar.font = [UIFont systemFontOfSize:14];
@@ -135,7 +135,7 @@
     [self.view addSubview:self.buttonGuanYu];
     self.imageGuanYu = [[UIImageView alloc]initWithFrame:CGRectMake(70, 5, 25, 25)];
     [self.buttonGuanYu addSubview:self.imageGuanYu];
-    [self.imageGuanYu setImage:[UIImage imageNamed:@"关于哪吒图标-0"]];
+    [self.imageGuanYu setImage:[UIImage imageNamed:@"关于哪吒图标"]];
     _labelGuanYu = [UILabel new];
     _labelGuanYu.frame = CGRectMake(105, 5, 100, 30);
     _labelGuanYu.font = [UIFont systemFontOfSize:14];
@@ -163,7 +163,7 @@
     [_buttonMoney addTarget:self action:@selector(clickMoney:) forControlEvents:UIControlEventTouchUpInside];
     _imageMoney = [[UIImageView alloc]initWithFrame:CGRectMake(70, 5, 25, 25)];
     [_buttonMoney addSubview:_imageMoney];
-    [_imageMoney setImage:[UIImage imageNamed:@"充值图标-0"]];
+    [_imageMoney setImage:[UIImage imageNamed:@"充值图标"]];
     _labelMoney = [UILabel new];
     _labelMoney.frame = CGRectMake(105, 5, 100, 30);
     _labelMoney.font = [UIFont systemFontOfSize:14];

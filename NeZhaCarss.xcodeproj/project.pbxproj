@@ -502,6 +502,7 @@
 				13C105AF1C44D844008B19D9 /* SOS */,
 				13C105B21C44D844008B19D9 /* 一键服务 */,
 				13C105C71C44D844008B19D9 /* 进度查询 */,
+				1F4BD37B1C47700D007CB73B /* 保养记录 */,
 			);
 			path = NeZhaManager;
 			sourceTree = "<group>";
@@ -624,6 +625,13 @@
 				13EEAC0B1C3E08A2006989BD /* MapTableViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1F4BD37B1C47700D007CB73B /* 保养记录 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "保养记录";
 			sourceTree = "<group>";
 		};
 		862E5C44B1228C0B7AA44D1B /* Pods */ = {

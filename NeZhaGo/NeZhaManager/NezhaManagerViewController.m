@@ -23,6 +23,7 @@
     //UIView *_progressView;
     //LDProgressView *_progress;
     UIView *_dataZoneView;
+
 }
 @end
 
@@ -238,6 +239,7 @@
     recommendSet.textColor = [UIColor colorWithHexString:@"#0CA69C"];
     recommendSet.font = [UIFont systemFontOfSize:16];
     CGSize size4 = [recommendSet.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
+//    recommendSet addGestureRecognizer:
     [_dataZoneView addSubview:recommendSet];
     
     [nxtPro mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -252,7 +254,7 @@
         make.size.mas_equalTo(size4);
     }];
     
-    maintenanceRecord.text = @"保养记录:";
+    maintenanceRecord.text = @"保  养  记  录 :";
     maintenanceRecord.textColor = [UIColor colorWithHexString:@"#444444"];
     maintenanceRecord.font = [UIFont systemFontOfSize:14];
     maintenanceRecord.contentMode = UIViewContentModeScaleToFill;
@@ -577,20 +579,110 @@
 - (void)click:(UIButton *)button
 {
     OneKeyServiceViewController *oks_VC = [[OneKeyServiceViewController alloc] init];
-    SOSViewController *sos_VC = [[SOSViewController alloc] init];
     ProgressQueryViewController *pq_VC = [[ProgressQueryViewController alloc] init];
+    UILabel *sosTitle = [UILabel new];
+    UIView *sosBackView = [UIView new];
+    UIView *sosView = [UIView new];
+    UIButton *btnClose = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnVehicleRescue = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnEmergencyRescue = [UIButton buttonWithType:UIButtonTypeCustom];
     switch (button.tag) {
         case 100:
             oks_VC.title = @"一键服务";
             [self.navigationController pushViewController:oks_VC animated:YES];
             break;
         case 101:
-            sos_VC.title = @"SOS";
-            [self.navigationController pushViewController:sos_VC animated:YES];
+        {
+            sosBackView = [UIView new];
+            sosBackView.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.5];
+            [[UIApplication sharedApplication].keyWindow addSubview:sosBackView];
+            self.upView = sosBackView;
+            [sosBackView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(@0);
+                make.left.equalTo(@0);
+                make.right.equalTo(@0);
+                make.bottom.equalTo(@0);
+            }];
+            
+            sosView = [UIView new];
+            sosView.backgroundColor = [UIColor whiteColor];
+            sosView.layer.cornerRadius = 5;
+            sosView.tag = 1000;
+            sosView.layer.masksToBounds = YES;
+            [sosBackView addSubview:sosView];
+            
+            [sosView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(sosBackView);
+                //make.height.equalTo(sosView.mas_width);
+                make.left.equalTo(@15);
+                make.right.equalTo(@-15);
+                make.height.equalTo(@240);
+            }];
+            
+            sosTitle.text = @"智能救护";
+            sosTitle.textAlignment = NSTextAlignmentCenter;
+            sosTitle.textColor = [UIColor whiteColor];
+            sosTitle.backgroundColor = [UIColor colorWithHexString:@"0CA69C"];
+            sosTitle.userInteractionEnabled = YES;
+            [sosView addSubview:sosTitle];
+            
+            [sosTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(sosView);
+                make.height.equalTo(@50);
+                make.left.equalTo(@0);
+                make.top.equalTo(@0);
+            }];
+            
+            [btnClose setImage:[UIImage imageNamed:@"离线-1"] forState:UIControlStateNormal];
+            btnClose.tag = 103;
+            [btnClose addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            [sosView addSubview:btnClose];
+            
+            [btnClose mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(sosTitle);
+                make.right.equalTo(@-10);
+                make.size.mas_equalTo(CGSizeMake(15, 15));
+            }];
+            
+            [btnVehicleRescue setImage:[UIImage imageNamed:@"微信"] forState:UIControlStateNormal];
+            btnVehicleRescue.tag = 104;
+            [btnVehicleRescue addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            [sosView addSubview:btnVehicleRescue];
+            
+            [btnEmergencyRescue setImage:[UIImage imageNamed:@"qq登陆框"] forState:UIControlStateNormal];
+            btnEmergencyRescue.tag = 105;
+            [btnEmergencyRescue addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            [sosView addSubview:btnEmergencyRescue];
+            
+            [btnVehicleRescue mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(sosTitle.mas_bottom).with.offset(20);
+                make.left.equalTo(@40);
+                make.size.mas_equalTo(CGSizeMake(25, 25));
+            }];
+            
+            [btnEmergencyRescue mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(btnVehicleRescue);
+                make.right.equalTo(@-40);
+                make.size.mas_equalTo(CGSizeMake(25, 25));
+            }];
+        }
+            
             break;
         case 102:
             pq_VC.title = @"进度查询";
             [self.navigationController pushViewController:pq_VC animated:YES];
+            break;
+        case 103:
+        {
+            NSLog(@"关闭");
+            [self.upView removeFromSuperview];
+        }
+            break;
+        case 104:
+            NSLog(@"车辆救援");
+            break;
+        case 105:
+            NSLog(@"紧急救援");
             break;
             
         default:
