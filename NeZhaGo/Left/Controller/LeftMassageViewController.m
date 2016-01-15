@@ -14,7 +14,7 @@
 #define HEIGHT self.view.bounds.size.height
 #import "LeftMassageCollectionViewCell.h"
 
-@interface LeftMassageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface LeftMassageViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
 @property (nonatomic ,strong)UILabel *LabelTitle;
 @property (nonatomic ,strong)UISegmentedControl *segmentedControlMassage;
 @property (nonatomic ,strong)NSArray *arrSeg;
@@ -35,15 +35,6 @@
 
 
 @property (nonatomic ,strong) NSMutableArray *arraaaa;
-
-//@property (nonatomic ,strong)UIDatePicker *datePickerStart;
-//@property (nonatomic ,strong)UIDatePicker *datePickerEnd;
-//@property (nonatomic ,strong)UIButton *buttonStartOver;
-//@property (nonatomic ,strong)UIButton *buttonEndOver;
-//@property (nonatomic ,strong)UIView *dateView;
-//@property (nonatomic ,strong)UIView *dateViewEnd;
-//@property (nonatomic ,strong)UILabel *inLabel;
-//@property (nonatomic ,strong)UILabel *outLabel;
 @end
 
 @implementation LeftMassageViewController
@@ -110,7 +101,7 @@
     self.segmentedControlMassage.selectedSegmentIndex = 0;
 
 
-    
+    //一道横线；
     self.viewHua = [[UIView alloc]initWithFrame:CGRectMake(5, 49, WIDTH-10, 1)];
     self.viewHua.backgroundColor = [UIColor grayColor];
     self.viewHua.alpha = 0.9;
@@ -211,9 +202,6 @@
         leftCell.labelDao.text = @"至";
         [leftCell addSubview:leftCell.buttonSearch];
         
-        [leftCell.buttonSearch addTarget:self action:@selector(clickSearch:) forControlEvents:UIControlEventTouchUpInside];
-
-        
         
         self.viewOrange.frame = CGRectMake(5, 48, 80, 2);
         
@@ -228,6 +216,28 @@
             self.viewOrange.frame = CGRectMake(100, 48, 80, 2);
 
             
+            
+            
+            
+            
+            
+            
+            [secSecond addSubview:secSecond.viewWhites];
+            secSecond.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
+            secSecond.labelCongs.text = @"从";
+            secSecond.labelDaos.text = @"至";
+            [secSecond addSubview:secSecond.buttonSearchs];
+            
+            
+          //  self.viewOrange.frame = CGRectMake(5, 48, 80, 2);
+
+            
+            
+            
+            
+            
+            
+            
             return secSecond;
             
         }
@@ -239,6 +249,15 @@
             self.viewOrange.frame = CGRectMake(195, 48, 80, 2);
 
             
+            [third addSubview:third.viewWhitess];
+            third.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
+            third.labelCongss.text = @"从";
+            third.labelDaoss.text = @"至";
+            [third addSubview:third.buttonSearchss];
+
+            
+            
+            
             return third;
             
         }
@@ -247,6 +266,16 @@
         LeftFouthCollectionViewcell *fouth = [collectionView dequeueReusableCellWithReuseIdentifier:@"fouth" forIndexPath:indexPath];
         
         self.viewOrange.frame = CGRectMake(285, 48, 85, 2);
+        
+        
+        [fouth addSubview:fouth.viewWhitesss];
+        fouth.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
+        fouth.labelCongsss.text = @"从";
+        fouth.labelDaosss.text = @"至";
+        [fouth addSubview:fouth.buttonSearchsss];
+
+        
+        
         
         return fouth;
         
@@ -257,51 +286,6 @@
 
 
 
-- (void)clickSearch:(UIButton *)button
-{
-        NSLog(@"button");
-   
-//    if (self.arraaaa == nil) {
-//        NSLog(@"kong");
-//    }else{
-//        self.tableViewLeftMassage.dataSource = self;
-//        self.tableViewLeftMassage.delegate = self;
-//        self.tableViewLeftMassage = [[UITableView alloc]initWithFrame:CGRectMake(0, 240, WIDTH, 300) style:UITableViewStylePlain];
-//        [self.view addSubview:self.tableViewLeftMassage];
-//        self.tableViewLeftMassage.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    }
-    
-
-        self.tableViewLeftMassage.dataSource = self;
-        self.tableViewLeftMassage.delegate = self;
-        self.tableViewLeftMassage = [[UITableView alloc]initWithFrame:CGRectMake(0, 240, WIDTH, 300) style:UITableViewStylePlain];
-        [self.view addSubview:self.tableViewLeftMassage];
-        self.tableViewLeftMassage.separatorStyle = UITableViewCellSeparatorStyleNone;
-
-    
-    
-}
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 50;
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *reusesss = @"reusesss";
-    UITableViewCell *celler = [tableView dequeueReusableCellWithIdentifier:reusesss];
-    if (!celler) {
-        celler = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusesss];
-    }
-    
-    
-    
-    return celler;
-}
 
 
 

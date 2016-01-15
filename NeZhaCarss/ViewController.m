@@ -92,7 +92,7 @@
     self.LabelTitle.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     [self.LabelTitle sizeToFit];
     self.navigationItem.titleView = self.LabelTitle;
-    [MAMapServices sharedServices].apiKey = @"用户Key";
+    [MAMapServices sharedServices].apiKey = @"bea548341ba5b2f97b2bb58ffcc60e4e";
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
@@ -120,11 +120,6 @@
 
 - (void)createButtonWatch
 {
-//    self.viewWatch = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 80)];
-//    self.viewWatch.backgroundColor = [UIColor grayColor];
-//    self.viewWatch.alpha = 0.8;
-//    [self.view addSubview:self.viewWatch];
-    
     
     self.buttonViewDown = [UIButton buttonWithType:UIButtonTypeCustom];
     self.buttonViewDown.frame = CGRectMake(0, 64, WIDTH, 47);
@@ -299,10 +294,7 @@
     [self.viewTab addSubview:self.labelZijian];
     self.labelZijian.font = [UIFont systemFontOfSize:13];
 
-    
-    
-    
-    
+        
     self.buttonViewJiaShi = [UIButton buttonWithType:UIButtonTypeCustom];
     self.buttonViewJiaShi.frame = CGRectMake(243, 5, 45, 45);
 
