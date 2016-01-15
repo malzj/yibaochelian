@@ -10,4 +10,11 @@
 
 @interface MaintenanceViewController : UIViewController
 
+@property(nonatomic, strong)UIView *contentView;
+@property(nonatomic, strong)UIView *basicInfoView;
+@property(nonatomic, strong)UIView *vehicleInfoView;
+@property(nonatomic, strong)UIView *facilitatorView;
+@property(nonatomic, strong)UIView *feeCompareView;
+@property(nonatomic, strong)UIView *progDetailView;
+
 @end

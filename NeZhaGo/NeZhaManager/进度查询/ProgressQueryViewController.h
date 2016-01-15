@@ -10,4 +10,6 @@
 
 @interface ProgressQueryViewController : UIViewController
 
+@property(nonatomic, strong)UIView *textProgressView;
+
 @end
