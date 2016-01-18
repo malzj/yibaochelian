@@ -56,17 +56,9 @@
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
-//    self.viewOrange = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 30, 5)];
-//    self.viewOrange.backgroundColor = [UIColor orangeColor];
-//    [self.viewHua addSubview:self.viewOrange];
 
-    
-   
-    
-    
     [self createSegmentedControlMassage];
     [self createCollection];
-    [self createDate];
 }
 
 
@@ -89,6 +81,7 @@
     self.scollerViewD.contentSize = CGSizeMake(WIDTH*1.3,HEIGHT);
     self.scollerViewD.showsHorizontalScrollIndicator = NO;
     self.scollerViewD.showsVerticalScrollIndicator = NO;
+    self.scollerViewD.scrollEnabled = NO;
 
     self.scollerViewD.delegate = self;
     
@@ -113,11 +106,6 @@
     self.viewOrange.backgroundColor = [UIColor orangeColor];
     [self.scollerViewD addSubview:self.viewOrange];
 
-    
-    
-    
-    
-    
     
     //修改字体
     NSDictionary* selectedTextAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName: [UIColor grayColor]};
@@ -144,11 +132,7 @@
 
 }
 
-- (void)createDate
-{
-    
-    
-}
+
 
 - (void)createCollection
 {
@@ -215,29 +199,11 @@
             
             self.viewOrange.frame = CGRectMake(100, 48, 80, 2);
 
-            
-            
-            
-            
-            
-            
-            
             [secSecond addSubview:secSecond.viewWhites];
             secSecond.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
             secSecond.labelCongs.text = @"从";
             secSecond.labelDaos.text = @"至";
             [secSecond addSubview:secSecond.buttonSearchs];
-            
-            
-          //  self.viewOrange.frame = CGRectMake(5, 48, 80, 2);
-
-            
-            
-            
-            
-            
-            
-            
             return secSecond;
             
         }

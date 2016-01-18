@@ -53,6 +53,7 @@
     self.scrollViewSheZhi.contentSize = CGSizeMake(WIDTH * 1.3, HEIGHT);
     self.scrollViewSheZhi.showsHorizontalScrollIndicator = NO;
     self.scrollViewSheZhi.showsVerticalScrollIndicator = NO;
+    self.scrollViewSheZhi.scrollEnabled = NO;
     self.scrollViewSheZhi.delegate = self;
     [self.view addSubview:self.scrollViewSheZhi];
     

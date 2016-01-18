@@ -40,6 +40,28 @@
 @property (nonatomic ,strong)UIButton *buttonCarsLogo;
 @property (nonatomic ,strong)UIButton *buttonCarSize;
 @property (nonatomic ,strong)UIButton *buttonCarPaiLiang;
+
+
+
+
+
+@property (nonatomic ,strong)UILabel *labelStarts;
+@property (nonatomic ,strong)UILabel *labelStartsSec;
+@property (nonatomic ,strong)UILabel *labelEnds;
+@property (nonatomic ,strong)UILabel *labelEndsSec;
+
+
+
+@property (nonatomic ,strong)UIDatePicker *datePickerStarts;
+@property (nonatomic ,strong)UIDatePicker *datePickerEnds;
+
+@property (nonatomic ,strong)UIButton *buttonStartOvers;
+@property (nonatomic ,strong)UIButton *buttonEndOvers;
+
+@property (nonatomic ,strong)UIView *dateViews;
+@property (nonatomic ,strong)UIView *dateViewEnds;
+
+
 @end
 
 @implementation CarTianJiaViewController
@@ -201,7 +223,6 @@
     self.labeleBeiZhu.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labeleBeiZhu.text = @"备 注 :";
     [self.view addSubview:self.labeleBeiZhu];
-    
     
     
 }
@@ -414,6 +435,69 @@
     _textFieldZhongDuan.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
     [self.view addSubview:self.textFieldZhongDuan];
 
+    
+    
+    _labelStarts = [[UILabel alloc]init];
+    _labelStarts.frame = CGRectMake(100, 520, 100, 30);
+    _labelStarts.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelStarts.layer.borderWidth = 1;
+    _labelStarts.layer.cornerRadius = 2;
+    _labelStarts.layer.masksToBounds = YES;
+    _labelStarts.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelStarts];
+
+    
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(210, 520, 30, 30)];
+    label.textColor = [UIColor colorWithRed:162/255.0 green:162/255.0 blue:163/255.0 alpha:1];
+    label.font = [UIFont systemFontOfSize:13];
+    label.text = @"至";
+    [self.view addSubview:label];
+    
+    
+    _labelStartsSec = [[UILabel alloc]init];
+    _labelStartsSec.frame = CGRectMake(230, 520, 130, 30);
+    _labelStartsSec.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelStartsSec.layer.borderWidth = 1;
+    _labelStartsSec.layer.cornerRadius = 2;
+    _labelStartsSec.layer.masksToBounds = YES;
+    _labelStartsSec.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelStartsSec];
+    
+    
+    
+    
+    
+    _labelEnds = [[UILabel alloc]init];
+    _labelEnds.frame = CGRectMake(100, 560, 100, 30);
+    _labelEnds.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelEnds.layer.borderWidth = 1;
+    _labelEnds.layer.cornerRadius = 2;
+    _labelEnds.layer.masksToBounds = YES;
+    _labelEnds.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelEnds];
+    
+    
+    
+    UILabel *labels = [[UILabel alloc]initWithFrame:CGRectMake(210, 560, 30, 30)];
+    labels.textColor = [UIColor colorWithRed:162/255.0 green:162/255.0 blue:163/255.0 alpha:1];
+    labels.font = [UIFont systemFontOfSize:13];
+    labels.text = @"至";
+    [self.view addSubview:labels];
+
+
+    
+    _labelEndsSec = [[UILabel alloc]init];
+    _labelEndsSec.frame = CGRectMake(230, 560, 130, 30);
+    _labelEndsSec.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelEndsSec.layer.borderWidth = 1;
+    _labelEndsSec.layer.cornerRadius = 2;
+    _labelEndsSec.layer.masksToBounds = YES;
+    _labelEndsSec.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelEndsSec];
+    
+    
+    
     
     
     

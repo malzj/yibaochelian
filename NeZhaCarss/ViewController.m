@@ -19,10 +19,14 @@
 
 #import "JumpPage.h"
 
+
+
 @interface ViewController ()<MAMapViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     MAMapView *_mapView;
+    double _page ;
 }
+
 @property (nonatomic ,strong)UILabel *LabelTitle;
 @property (nonatomic ,strong)UITableView *myTableView;
 @property (nonatomic ,strong)UIButton *buttonLocation;
@@ -86,6 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     self.LabelTitle = [UILabel new];
     self.LabelTitle.text = @"首页";
     self.LabelTitle.font = [UIFont systemFontOfSize:18];
@@ -94,6 +99,7 @@
     self.navigationItem.titleView = self.LabelTitle;
     [MAMapServices sharedServices].apiKey = @"bea548341ba5b2f97b2bb58ffcc60e4e";
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     [self createButtonWatch];
@@ -116,6 +122,9 @@
         
 
 }
+
+
+
 
 
 - (void)createButtonWatch
@@ -417,9 +426,23 @@
 - (void)clickAdd :(UIButton *)button
 {
     NSLog(@"add");
+    
+    if (_mapView.zoomLevel >=4 && _mapView.zoomLevel <=19) {
+        [_mapView setZoomLevel:_mapView.zoomLevel + 1 animated:YES];
+    }else if (_mapView.zoomLevel >3 && _mapView.zoomLevel <4)
+        [_mapView setZoomLevel:3 animated:YES];
+
+
 }
 - (void)clickLose :(UIButton *)button
 {
+    
+
+    if (_mapView.zoomLevel >=4 && _mapView.zoomLevel <=19) {
+        [_mapView setZoomLevel:_mapView.zoomLevel - 1 animated:YES];
+    }else if (_mapView.zoomLevel >3 && _mapView.zoomLevel <4)
+        [_mapView setZoomLevel:3 animated:YES];
+
     NSLog(@"lose");
 }
 
