@@ -8,16 +8,11 @@
 
 #import "ProgressQueryViewController.h"
 #import "masonry.h"
+// #import <QuartzCore/QuartzCore.h>
 
 #define WS(weakSelf) __weak __typeof(&*self)weakSelf = self;
 
 @interface ProgressQueryViewController ()
-{
-    UIView *_UV_4S;         //4S店相关块
-    UIView *_UV_pro;        //保养项目相关块
-    UIView *_UV_step;       //步骤相关块
-    UIButton *_btn_Video;   //查看视频按键
-}
 
 @end
 
@@ -30,209 +25,140 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     self.view.backgroundColor = [UIColor whiteColor];
-    [self UIConfig];
-    [self createButton];
-    [self createLabel];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回按钮"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeft:)];
+    
+    self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    [self createTextProgress];
 }
 
-- (void)createLabel
+#pragma mark 文字进度
+- (void)createTextProgress
 {
-    WS(ws);
-    /**
-     4S店模块
-     */
-    UILabel *lbl_4sName = [UILabel new];        //4S店名
-    UILabel *lbl_class = [UILabel new];         //班组
-    UILabel *lbl_category = [UILabel new];      //类别
+    self.textProgressView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width-10, 150)];
+    self.textProgressView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.textProgressView.layer.borderWidth = 1;
+    [self.view addSubview:self.textProgressView];
     
-    //此处添加label属性
-    lbl_4sName.backgroundColor = [UIColor clearColor];
-    lbl_4sName.text = @"4S 店:濠杰汽车服务";
-    lbl_4sName.font = [UIFont systemFontOfSize:13];
-//    lbl_4sName.textAlignment = NSTextAlignmentCenter;
-//    lbl_4sName.textColor = [UIColor whiteColor];
+//    [self.textProgressView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.and.left.equalTo(@5);
+//        make.right.equalTo(@-5);
+//        make.height.equalTo(@150);
+//    }];
     
-    lbl_class.backgroundColor = [UIColor clearColor];
-    lbl_class.text = @"班组:维修一组";
-    lbl_class.font = [UIFont systemFontOfSize:13];
-//    lbl_class.textAlignment = NSTextAlignmentCenter;
-//    lbl_class.textColor = [UIColor whiteColor];
+    UIImageView *dashLineView = [UIImageView new];
+    [self.textProgressView addSubview:dashLineView];
+    dashLineView.frame = CGRectMake(10, 80, self.textProgressView.frame.size.width-20, 1);
     
-    lbl_category.backgroundColor = [UIColor clearColor];
-    lbl_category.text = @"类别:保养";
-    lbl_category.font = [UIFont systemFontOfSize:13];
-//    lbl_category.textAlignment = NSTextAlignmentCenter;
-//    lbl_category.textColor = [UIColor whiteColor];
+    UIGraphicsBeginImageContext(dashLineView.frame.size);   //开始画线
+    [dashLineView.image drawInRect:CGRectMake(0, 0, dashLineView.frame.size.width, dashLineView.frame.size.height)];
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);  //设置线条终点形状
     
-    [_UV_4S addSubview:lbl_4sName];
-    [_UV_4S addSubview:lbl_class];
-    [_UV_4S addSubview:lbl_category];
     
-    [lbl_4sName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.left.equalTo(_UV_4S.mas_left).with.offset(20);
-        make.size.mas_equalTo(CGSizeMake(ws.view.frame.size.width/2-20, 30));
+    CGFloat lengths[] = {10,5}; //虚线样式
+    CGContextRef line = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(line, [UIColor redColor].CGColor);
+    
+    CGContextSetLineDash(line, 0, lengths, 2);  //画虚线
+    CGContextMoveToPoint(line, 0.0, 0.0);    //开始画线
+    CGContextAddLineToPoint(line, dashLineView.frame.size.width, 0.0);
+    CGContextStrokePath(line);
+    
+    dashLineView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [self.textProgressView addSubview:lineView];
+    
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@-30);
+        make.width.equalTo(self.textProgressView);
+        make.height.equalTo(@1);
+        make.left.equalTo(self.textProgressView);
     }];
     
-    [lbl_class mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lbl_4sName.mas_bottom);
-        make.centerX.equalTo(lbl_4sName.mas_centerX);
-        make.size.mas_equalTo(lbl_4sName);
+    UILabel *lblFacilitator = [UILabel new];
+    lblFacilitator.text = @"服务商:";
+    lblFacilitator.font = [UIFont systemFontOfSize:14];
+    CGSize faciSize = [lblFacilitator.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblFacilitator];
+    
+    [lblFacilitator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.equalTo(@10);
+        make.size.mas_equalTo(faciSize);
     }];
     
-    [lbl_category mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(lbl_4sName.mas_centerX);
-        make.size.mas_equalTo(lbl_4sName);
-        make.top.equalTo(lbl_class.mas_bottom);
+    UILabel *lblGroup = [UILabel new];
+    lblGroup.text = @"班 组:";
+    lblGroup.font = [UIFont systemFontOfSize:14];
+    CGSize groupSize = [lblGroup.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblGroup];
+    
+    [lblGroup mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(groupSize);
+        make.top.equalTo(lblFacilitator);
+        make.left.equalTo(self.textProgressView.mas_centerX);
     }];
     
-    /**
-     项目模块
-     */
+    UILabel *lblMaintain = [UILabel new];
+    lblMaintain.text = @"保   养:";
+    lblMaintain.font = [UIFont systemFontOfSize:14];
+    CGSize maintainSize = [lblMaintain.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblMaintain];
     
-    /**
-     步骤模块
-     */
-    UILabel *lbl_plan = [UILabel new];          //预计时间
-    UILabel *lbl_preStep = [UILabel new];       //上一步
-    UILabel *lbl_currentStep = [UILabel new];   //当前
-    UILabel *lbl_nxtStep = [UILabel new];       //下一步
-    
-    //此处添加label属性
-    lbl_plan.backgroundColor = [UIColor clearColor];
-    lbl_plan.text = @"预计2小时完成 剩余 01:07:25";
-    lbl_plan.font = [UIFont systemFontOfSize:13];
-    //    lbl_4sName.textAlignment = NSTextAlignmentCenter;
-//    lbl_plan.textColor = [UIColor whiteColor];
-    
-    lbl_preStep.backgroundColor = [UIColor clearColor];
-    lbl_preStep.text = @"上一步:更换机油、机滤";
-    lbl_preStep.font = [UIFont systemFontOfSize:13];
-    //    lbl_class.textAlignment = NSTextAlignmentCenter;
-//    lbl_preStep.textColor = [UIColor whiteColor];
-    
-    lbl_currentStep.backgroundColor = [UIColor clearColor];
-    lbl_currentStep.text = @"当前状态:加注机油";
-    lbl_currentStep.font = [UIFont systemFontOfSize:13];
-    //    lbl_category.textAlignment = NSTextAlignmentCenter;
-//    lbl_currentStep.textColor = [UIColor whiteColor];
-    
-    lbl_nxtStep.backgroundColor = [UIColor clearColor];
-    lbl_nxtStep.text = @"下一步:常规检测";
-    lbl_nxtStep.font = [UIFont systemFontOfSize:13];
-    //    lbl_category.textAlignment = NSTextAlignmentCenter;
-//    lbl_nxtStep.textColor = [UIColor whiteColor];
-    
-    lbl_plan.layer.borderColor = [[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1] CGColor];
-    lbl_preStep.layer.borderColor = [[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1] CGColor];
-    lbl_currentStep.layer.borderColor = [[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1] CGColor];
-    lbl_nxtStep.layer.borderColor = [[UIColor colorWithRed:240.0/255 green:240.0/255 blue:240.0/255 alpha:1] CGColor];
-    
-    lbl_plan.layer.borderWidth = 0.5;
-    lbl_preStep.layer.borderWidth = 0.5;
-    lbl_currentStep.layer.borderWidth = 0.5;
-    lbl_nxtStep.layer.borderWidth = 0.5;
-    
-    [_UV_step addSubview:lbl_plan];
-    [_UV_step addSubview:lbl_preStep];
-    [_UV_step addSubview:lbl_currentStep];
-    [_UV_step addSubview:lbl_nxtStep];
-    
-    [lbl_plan mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-        make.size.mas_equalTo(CGSizeMake(ws.view.frame.size.width, 30));
+    [lblMaintain mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(lblFacilitator);
+        make.top.equalTo(lblFacilitator.mas_bottom).with.offset(15);
+        make.size.mas_equalTo(maintainSize);
     }];
     
-    [lbl_preStep mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lbl_plan.mas_bottom);
-        make.centerX.equalTo(lbl_plan.mas_centerX);
-        make.size.mas_equalTo(lbl_plan);
+    UILabel *lblPre = [UILabel new];
+    UILabel *lblCur = [UILabel new];
+    UILabel *lblNxt = [UILabel new];
+    
+    lblPre.text = @"上一步:";
+    lblCur.text = @"进行中:";
+    lblNxt.text = @"下一步:";
+    
+    lblPre.font = [UIFont systemFontOfSize:12];
+    lblCur.font = [UIFont systemFontOfSize:12];
+    lblNxt.font = [UIFont systemFontOfSize:12];
+    
+    CGSize stepSize = [lblPre.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12]}];
+    
+    [self.textProgressView addSubview:lblPre];
+    [self.textProgressView addSubview:lblCur];
+    [self.textProgressView addSubview:lblNxt];
+    
+    [lblPre mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblFacilitator);
+        make.top.equalTo(lineView.mas_bottom).with.offset(7);
     }];
     
-    [lbl_currentStep mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(lbl_plan.mas_centerX);
-        make.size.mas_equalTo(lbl_plan);
-        make.top.equalTo(lbl_preStep.mas_bottom);
+    [lblCur mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblPre.mas_right).with.offset(50);
+        make.top.equalTo(lblPre);
     }];
     
-    [lbl_nxtStep mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(lbl_plan.mas_centerX);
-        make.size.mas_equalTo(lbl_plan);
-        make.top.equalTo(lbl_currentStep.mas_bottom);
+    [lblNxt mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblCur.mas_right).with.offset(50);
+        make.top.equalTo(lblPre);
     }];
+
 }
 
-- (void)createButton
+#pragma mark 返回键点击
+-(void)clickLeft:(UIButton*)button
 {
-    WS(ws);
-    _btn_Video = [UIButton buttonWithType:UIButtonTypeSystem];
-    _btn_Video.backgroundColor = [UIColor colorWithRed:143.0/255 green:213.0/255 blue:68.0/255 alpha:1];
-    [_btn_Video setTitle:@"查看视频" forState:UIControlStateNormal];
-    [_btn_Video setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    _btn_Video.layer.cornerRadius = 10;
-    _btn_Video.layer.masksToBounds = YES;
-    [_btn_Video addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_btn_Video];
-    
-    [_btn_Video mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(ws.view.mas_centerX);
-        make.top.equalTo(_UV_step.mas_bottom).with.offset(5);
-        make.size.mas_equalTo(CGSizeMake(100, 30));
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark 查看视频按键触发
-- (void)click:(UIButton *)button
-{
-    //add the button click method
-}
-
-- (void)UIConfig
-{
-    
-    WS(ws);
-    _UV_4S = [UIView new];
-    _UV_pro = [UIView new];
-    _UV_step = [UIView new];
-    
-    _UV_4S.backgroundColor = [UIColor colorWithRed:251.0/255 green:251.0/255 blue:251.0/255 alpha:1];
-    _UV_pro.backgroundColor = [UIColor colorWithRed:251.0/255 green:251.0/255 blue:251.0/255 alpha:1];
-    _UV_step.backgroundColor = [UIColor colorWithRed:251.0/255 green:251.0/255 blue:251.0/255 alpha:1];
-    
-    _UV_4S.layer.borderWidth = 0.5;
-    _UV_pro.layer.borderWidth = 0.5;
-    _UV_step.layer.borderWidth = 0.5;
-    
-    _UV_4S.layer.borderColor = [[UIColor colorWithRed:204.0/255 green:204.0/255 blue:204.0/255 alpha:1] CGColor];
-    _UV_pro.layer.borderColor = [[UIColor colorWithRed:204.0/255 green:204.0/255 blue:204.0/255 alpha:1] CGColor];
-    _UV_step.layer.borderColor = [[UIColor colorWithRed:204.0/255 green:204.0/255 blue:204.0/255 alpha:1] CGColor];
-    
-    [self.view addSubview:_UV_4S];
-    [self.view addSubview:_UV_pro];
-    [self.view addSubview:_UV_step];
-    
-    [self.view bringSubviewToFront:_UV_4S];
-    
-    [_UV_4S mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake((ws.view.frame.size.width)/2, 90));
-        make.top.equalTo(@0);
-        make.left.equalTo(@0);
-    }];
-    
-    [_UV_pro mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(_UV_4S);
-        make.left.equalTo(_UV_4S.mas_right);
-        make.top.equalTo(@0);
-    }];
-    
-    [_UV_step mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(ws.view.frame.size.width, 120));
-        make.left.equalTo(@0);
-        make.top.equalTo(_UV_4S.mas_bottom);
-    }];
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
