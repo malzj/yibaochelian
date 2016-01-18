@@ -1,29 +1,22 @@
 //
-//  BaseViewController.m
+//  TroubleDescViewController.m
 //  NeZhaCarss
 //
-//  Created by 王钧民 on 16/1/6.
+//  Created by cz.jin on 16/1/18.
 //  Copyright © 2016年 王钧民. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "TroubleDescViewController.h"
 
-@interface BaseViewController ()
+@interface TroubleDescViewController ()
 
 @end
 
-@implementation BaseViewController
+@implementation TroubleDescViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-
-
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 7.0) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-
 }
 
 - (void)didReceiveMemoryWarning {
