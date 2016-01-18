@@ -12,6 +12,7 @@
 #import "NezhaManagerViewController.h"
 #import "UIColor+Hex.h"
 #import "LeftMassageViewController.h"
+#import "SelfCheckViewController.h"
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 
@@ -345,6 +346,8 @@
 - (void)clickZiJian:(UIButton*)button
 {
     NSLog(@"zijian");
+    SelfCheckViewController *selfCheckVC = [SelfCheckViewController new];
+    [self.navigationController pushViewController:selfCheckVC animated:YES];
 }
 - (void)clickJiaSHI:(UIButton*)button
 {
