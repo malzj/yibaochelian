@@ -29,6 +29,7 @@
 		133F0B3F1C3CAF8C006CB443 /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F0B3E1C3CAF8C006CB443 /* LeftTableViewCell.m */; };
 		138F074B1C45F3F2003FA643 /* LeftMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138F074A1C45F3F2003FA643 /* LeftMoneyViewController.m */; };
 		13A26E3C1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */; };
+		13B283EC1C4C94CE00039D4B /* LeftCarMassColCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B283EB1C4C94CE00039D4B /* LeftCarMassColCell.m */; };
 		13B4D72C1C4886B1003AA5A8 /* CarMassageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B4D72B1C4886B1003AA5A8 /* CarMassageViewController.m */; };
 		13B4D72F1C488879003AA5A8 /* CarTianJiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B4D72E1C488879003AA5A8 /* CarTianJiaViewController.m */; };
 		13C105A71C44C659008B19D9 /* TourManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C1059A1C44C659008B19D9 /* TourManagerViewController.m */; };
@@ -123,6 +124,8 @@
 		138F074A1C45F3F2003FA643 /* LeftMoneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMoneyViewController.m; sourceTree = "<group>"; };
 		13A26E3A1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSheZhiFirstPageCollectionViewCell.h; sourceTree = "<group>"; };
 		13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSheZhiFirstPageCollectionViewCell.m; sourceTree = "<group>"; };
+		13B283EA1C4C94CE00039D4B /* LeftCarMassColCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftCarMassColCell.h; sourceTree = "<group>"; };
+		13B283EB1C4C94CE00039D4B /* LeftCarMassColCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftCarMassColCell.m; sourceTree = "<group>"; };
 		13B4D72A1C4886B1003AA5A8 /* CarMassageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarMassageViewController.h; sourceTree = "<group>"; };
 		13B4D72B1C4886B1003AA5A8 /* CarMassageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarMassageViewController.m; sourceTree = "<group>"; };
 		13B4D72D1C488879003AA5A8 /* CarTianJiaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTianJiaViewController.h; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				13027B501C472F5B0091C5E5 /* LeftSheZhiSecondCollectionCell.m */,
 				13A26E3A1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.h */,
 				13A26E3B1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m */,
+				13B283EA1C4C94CE00039D4B /* LeftCarMassColCell.h */,
+				13B283EB1C4C94CE00039D4B /* LeftCarMassColCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -898,6 +903,7 @@
 				13C105D91C44DED5008B19D9 /* LeftFouthCollectionViewcell.m in Sources */,
 				1FDAB7B91C4C9A4600D3FE3D /* SelfCheckViewController.m in Sources */,
 				13E14BFE1C43320800FCA575 /* LeftMapViewController.m in Sources */,
+				13B283EC1C4C94CE00039D4B /* LeftCarMassColCell.m in Sources */,
 				13C105A81C44C659008B19D9 /* BasicInfoView.m in Sources */,
 				13A26E3C1C47966D0012C120 /* LeftSheZhiFirstPageCollectionViewCell.m in Sources */,
 				133F0B2D1C3C9BC6006CB443 /* BaseViewController.m in Sources */,

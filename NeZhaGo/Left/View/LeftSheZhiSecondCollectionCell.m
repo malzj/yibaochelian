@@ -56,9 +56,10 @@
     [self.buttonOBD setTitle:@"OBD参数" forState:UIControlStateNormal];
     self.buttonOBD.titleLabel.font = [UIFont systemFontOfSize:19];
     
-    _buttonWeiLan = [UIButton buttonWithType:UIButtonTypeSystem];
+    _buttonWeiLan = [UIButton buttonWithType:UIButtonTypeCustom];
     _buttonWeiLan.frame = CGRectMake(45, 55, 40, 40);
-    _buttonWeiLan.backgroundColor = [UIColor orangeColor];
+    [self.buttonWeiLan setImage:[UIImage imageNamed:@"创建围栏"] forState:UIControlStateNormal];
+    //_buttonWeiLan.backgroundColor = [UIColor orangeColor];
     [self.viewBiger addSubview:self.buttonWeiLan];
     [self.buttonWeiLan addTarget:self action:@selector(clickWeiLan:) forControlEvents:UIControlEventTouchUpInside];
     _labelWeiLan = [[UILabel alloc]initWithFrame:CGRectMake(43, 90, 50, 40)];
@@ -69,9 +70,10 @@
     [self.viewBiger addSubview:self.labelWeiLan];
     
     
-    _buttonChaKanWeiLan = [UIButton buttonWithType:UIButtonTypeSystem];
+    _buttonChaKanWeiLan = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.buttonChaKanWeiLan setImage:[UIImage imageNamed:@"查看围栏"] forState:UIControlStateNormal];
     _buttonChaKanWeiLan.frame = CGRectMake(125, 55, 40, 40);
-    _buttonChaKanWeiLan.backgroundColor = [UIColor greenColor];
+    //_buttonChaKanWeiLan.backgroundColor = [UIColor greenColor];
     [self.viewBiger addSubview:self.buttonChaKanWeiLan];
     [self.buttonChaKanWeiLan addTarget:self action:@selector(clickChaKanWeiLan:) forControlEvents:UIControlEventTouchUpInside];
     _labelChaKanWeiLan = [[UILabel alloc]initWithFrame:CGRectMake(123, 90, 50, 40)];
@@ -81,9 +83,10 @@
     _labelChaKanWeiLan.font = [UIFont systemFontOfSize:11];
     [self.viewBiger addSubview:self.labelChaKanWeiLan];
     
-    _buttonXianLu = [UIButton buttonWithType:UIButtonTypeSystem];
+    _buttonXianLu = [UIButton buttonWithType:UIButtonTypeCustom];
     _buttonXianLu.frame = CGRectMake(205, 55, 40, 40);
-    _buttonXianLu.backgroundColor = [UIColor colorWithRed:1.000 green:0.627 blue:0.893 alpha:1.000];
+    //_buttonXianLu.backgroundColor = [UIColor colorWithRed:1.000 green:0.627 blue:0.893 alpha:1.000];
+    [self.buttonXianLu setImage:[UIImage imageNamed:@"创建线路"] forState:UIControlStateNormal];
     [self.viewBiger addSubview:_buttonXianLu];
     [self.buttonXianLu addTarget:self action:@selector(clickXianLu:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -95,9 +98,10 @@
     [self.viewBiger addSubview:_labelXianLu];
     
     
-    _buttonChaKanXianLu = [UIButton buttonWithType:UIButtonTypeSystem];
+    _buttonChaKanXianLu = [UIButton buttonWithType:UIButtonTypeCustom];
     _buttonChaKanXianLu.frame = CGRectMake(285, 55, 40, 40);
-    _buttonChaKanXianLu.backgroundColor = [UIColor colorWithRed:0.415 green:0.668 blue:1.000 alpha:1.000];
+    //_buttonChaKanXianLu.backgroundColor = [UIColor colorWithRed:0.415 green:0.668 blue:1.000 alpha:1.000];
+    [self.buttonChaKanXianLu setImage:[UIImage imageNamed:@"查看线路"] forState:UIControlStateNormal];
     [self.viewBiger addSubview:_buttonChaKanXianLu];
     [self.buttonChaKanXianLu addTarget:self action:@selector(clickChaKanXianLu:) forControlEvents:UIControlEventTouchUpInside];
     _labelChaKanXianLu = [[UILabel alloc]initWithFrame:CGRectMake(283, 90, 50, 40)];
