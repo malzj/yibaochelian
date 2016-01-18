@@ -69,8 +69,88 @@
     
     dashLineView.image = UIGraphicsGetImageFromCurrentImageContext();
     
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [self.textProgressView addSubview:lineView];
     
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(@-30);
+        make.width.equalTo(self.textProgressView);
+        make.height.equalTo(@1);
+        make.left.equalTo(self.textProgressView);
+    }];
     
+    UILabel *lblFacilitator = [UILabel new];
+    lblFacilitator.text = @"服务商:";
+    lblFacilitator.font = [UIFont systemFontOfSize:14];
+    CGSize faciSize = [lblFacilitator.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblFacilitator];
+    
+    [lblFacilitator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.equalTo(@10);
+        make.size.mas_equalTo(faciSize);
+    }];
+    
+    UILabel *lblGroup = [UILabel new];
+    lblGroup.text = @"班 组:";
+    lblGroup.font = [UIFont systemFontOfSize:14];
+    CGSize groupSize = [lblGroup.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblGroup];
+    
+    [lblGroup mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(groupSize);
+        make.top.equalTo(lblFacilitator);
+        make.left.equalTo(self.textProgressView.mas_centerX);
+    }];
+    
+    UILabel *lblMaintain = [UILabel new];
+    lblMaintain.text = @"保   养:";
+    lblMaintain.font = [UIFont systemFontOfSize:14];
+    CGSize maintainSize = [lblMaintain.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    [self.textProgressView addSubview:lblMaintain];
+    
+    [lblMaintain mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(lblFacilitator);
+        make.top.equalTo(lblFacilitator.mas_bottom).with.offset(15);
+        make.size.mas_equalTo(maintainSize);
+    }];
+    
+    UILabel *lblPre = [UILabel new];
+    UILabel *lblCur = [UILabel new];
+    UILabel *lblNxt = [UILabel new];
+    
+    lblPre.text = @"上一步:";
+    lblCur.text = @"进行中:";
+    lblNxt.text = @"下一步:";
+    
+    lblPre.font = [UIFont systemFontOfSize:12];
+    lblCur.font = [UIFont systemFontOfSize:12];
+    lblNxt.font = [UIFont systemFontOfSize:12];
+    
+    CGSize stepSize = [lblPre.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12]}];
+    
+    [self.textProgressView addSubview:lblPre];
+    [self.textProgressView addSubview:lblCur];
+    [self.textProgressView addSubview:lblNxt];
+    
+    [lblPre mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblFacilitator);
+        make.top.equalTo(lineView.mas_bottom).with.offset(7);
+    }];
+    
+    [lblCur mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblPre.mas_right).with.offset(50);
+        make.top.equalTo(lblPre);
+    }];
+    
+    [lblNxt mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(stepSize);
+        make.left.equalTo(lblCur.mas_right).with.offset(50);
+        make.top.equalTo(lblPre);
+    }];
+
 }
 
 #pragma mark 返回键点击
