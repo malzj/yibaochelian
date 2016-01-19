@@ -30,6 +30,7 @@
     [self createPicZone];
 }
 
+#warning 此处添加选择照片方法
 - (void)createPicZone
 {
     
