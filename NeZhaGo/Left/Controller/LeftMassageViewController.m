@@ -143,7 +143,7 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     
-    self.mainCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 120, WIDTH, 557) collectionViewLayout:flowLayout];
+    self.mainCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 60, WIDTH, 557) collectionViewLayout:flowLayout];
     
     
     _mainCollectionView.showsHorizontalScrollIndicator = NO;

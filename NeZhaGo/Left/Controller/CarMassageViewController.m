@@ -42,7 +42,7 @@
     
     self.viewG = [[UIView alloc]init];
     self.viewG.backgroundColor = [UIColor whiteColor];
-    self.viewG.frame = CGRectMake(0, 65, WIDTH, 400),
+    self.viewG.frame = CGRectMake(0, 0, WIDTH, 400),
     [self.view addSubview:self.viewG];
     
     
