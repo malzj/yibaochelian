@@ -13,6 +13,7 @@
 #import "UIColor+Hex.h"
 #import "LeftMassageViewController.h"
 #import "SelfCheckViewController.h"
+#import "DriveScoreViewController.h"
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 
@@ -352,6 +353,8 @@
 - (void)clickJiaSHI:(UIButton*)button
 {
     NSLog(@"jiashi");
+    DriveScoreViewController *driveScoreVC = [DriveScoreViewController new];
+    [self.navigationController pushViewController:driveScoreVC animated:YES];
 }
 - (void)clickDianshang:(UIButton*)button
 {

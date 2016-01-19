@@ -10,6 +10,7 @@
 #define WIDTH self.view.bounds.size.width
 #define HEIGHT self.view.bounds.size.height
 #import "UIColor+Hex.h"
+#import "Masonry.h"
 
 @interface BaseViewController : UIViewController
 

@@ -45,36 +45,16 @@
     self.title = @"哪吒管家";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"FFFFFF"]}];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"返回按钮"] style:UIBarButtonItemStylePlain target:self action:@selector(clickLeft:)];
-    
-    
-    
+
     self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
-    
-    
-    
-    
 }
-
-
 
 -(void)clickLeft:(UIButton*)button
-
-
-
 {
-    
-    
-    
     [self.navigationController popViewControllerAnimated:YES];
-    
-    
-    
 }
-
-
 
 #pragma mark 数据区域
 - (void)createDetailDataZone

@@ -10,4 +10,6 @@
 
 @interface TroubleDescViewController : BaseViewController
 
+@property(nonatomic, strong)UITextView *troubleDescTV;
+
 @end
