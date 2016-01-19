@@ -48,11 +48,12 @@
 
 - (void)createScol
 {
-    self.scrollViewSheZhi = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 125)];
+    self.scrollViewSheZhi = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 52)];
     self.scrollViewSheZhi.backgroundColor = [UIColor clearColor];
     self.scrollViewSheZhi.contentSize = CGSizeMake(WIDTH * 1.3, HEIGHT);
     self.scrollViewSheZhi.showsHorizontalScrollIndicator = NO;
     self.scrollViewSheZhi.showsVerticalScrollIndicator = NO;
+    self.scrollViewSheZhi.scrollEnabled = NO;
     self.scrollViewSheZhi.delegate = self;
     [self.view addSubview:self.scrollViewSheZhi];
     
@@ -69,12 +70,6 @@
     self.viewOranger.backgroundColor = [UIColor orangeColor];
     [self.scrollViewSheZhi addSubview:self.viewOranger];
 
-    
-    
-    
-    
-    
-    
     
     
     //修改字体
@@ -130,9 +125,9 @@
     flow.minimumInteritemSpacing = 0;
     flow.minimumLineSpacing = 0;
     
-    self.collectionViewSheZhi = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 120, WIDTH, 557) collectionViewLayout:flow];
+    self.collectionViewSheZhi = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 55, WIDTH, 557) collectionViewLayout:flow];
     
-    
+    _collectionViewSheZhi.scrollEnabled = NO;
     _collectionViewSheZhi.showsHorizontalScrollIndicator = NO;
     _collectionViewSheZhi.showsVerticalScrollIndicator = NO;
     _collectionViewSheZhi.pagingEnabled = YES;
@@ -157,7 +152,7 @@
         celler.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
 
         
-        self.viewOranger.frame = CGRectMake(5, 48, 170, 2);
+        self.viewOranger.frame = CGRectMake(5, 48, 170, 3);
         
    
         
@@ -167,7 +162,7 @@
         LeftSheZhiSecondCollectionCell *Scell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Secinsider" forIndexPath:indexPath];
         
         
-        self.viewOranger.frame = CGRectMake(200, 48, 170, 2);
+        self.viewOranger.frame = CGRectMake(200, 48, 170, 3);
         Scell.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
 
         

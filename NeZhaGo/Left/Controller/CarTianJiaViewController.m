@@ -40,6 +40,28 @@
 @property (nonatomic ,strong)UIButton *buttonCarsLogo;
 @property (nonatomic ,strong)UIButton *buttonCarSize;
 @property (nonatomic ,strong)UIButton *buttonCarPaiLiang;
+
+
+
+
+
+@property (nonatomic ,strong)UILabel *labelStarts;
+@property (nonatomic ,strong)UILabel *labelStartsSec;
+@property (nonatomic ,strong)UILabel *labelEnds;
+@property (nonatomic ,strong)UILabel *labelEndsSec;
+
+
+
+@property (nonatomic ,strong)UIDatePicker *datePickerStarts;
+@property (nonatomic ,strong)UIDatePicker *datePickerEnds;
+
+@property (nonatomic ,strong)UIButton *buttonStartOvers;
+@property (nonatomic ,strong)UIButton *buttonEndOvers;
+
+@property (nonatomic ,strong)UIView *dateViews;
+@property (nonatomic ,strong)UIView *dateViewEnds;
+
+
 @end
 
 @implementation CarTianJiaViewController
@@ -76,7 +98,7 @@
 
 - (void)createLabel
 {
-    self.labelCarPersonName = [[UILabel alloc]initWithFrame:CGRectMake(10, 60, 70, 70)];
+    self.labelCarPersonName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 70, 70)];
     self.labelCarPersonName.font = [UIFont systemFontOfSize:16];
     self.labelCarPersonName.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarPersonName.text = @"车主姓名:";
@@ -85,7 +107,7 @@
     
     
     
-    self.labelCarNumber = [[UILabel alloc]initWithFrame:CGRectMake(10, 100, 70, 70)];
+    self.labelCarNumber = [[UILabel alloc]initWithFrame:CGRectMake(10, 40, 70, 70)];
     self.labelCarNumber.font = [UIFont systemFontOfSize:16];
     self.labelCarNumber.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarNumber.text = @"车 牌 号 :";
@@ -93,7 +115,7 @@
 
     
     
-    self.labelPhoneNumber = [[UILabel alloc]initWithFrame:CGRectMake(10, 140, 70, 70)];
+    self.labelPhoneNumber = [[UILabel alloc]initWithFrame:CGRectMake(10, 80, 70, 70)];
     self.labelPhoneNumber.font = [UIFont systemFontOfSize:16];
     self.labelPhoneNumber.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelPhoneNumber.text = @"联系电话:";
@@ -103,7 +125,7 @@
     
     
     
-    self.labelCarLogo = [[UILabel alloc]initWithFrame:CGRectMake(10, 180, 70, 70)];
+    self.labelCarLogo = [[UILabel alloc]initWithFrame:CGRectMake(10, 120, 70, 70)];
     self.labelCarLogo.font = [UIFont systemFontOfSize:16];
     self.labelCarLogo.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarLogo.text = @"车辆品牌:";
@@ -111,7 +133,7 @@
 
     
     
-    self.labelCarSize = [[UILabel alloc]initWithFrame:CGRectMake(10, 220, 70, 70)];
+    self.labelCarSize = [[UILabel alloc]initWithFrame:CGRectMake(10, 160, 70, 70)];
     self.labelCarSize.font = [UIFont systemFontOfSize:16];
     self.labelCarSize.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarSize.text = @"车 型 :";
@@ -120,7 +142,7 @@
     
     
     
-    self.labelCarPaiLiang = [[UILabel alloc]initWithFrame:CGRectMake(10, 260, 70, 70)];
+    self.labelCarPaiLiang = [[UILabel alloc]initWithFrame:CGRectMake(10, 200, 70, 70)];
     self.labelCarPaiLiang.font = [UIFont systemFontOfSize:16];
     self.labelCarPaiLiang.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarPaiLiang.text = @"排 量 :";
@@ -129,7 +151,7 @@
     
     
     
-    self.labelCarColor = [[UILabel alloc]initWithFrame:CGRectMake(10, 300, 70, 70)];
+    self.labelCarColor = [[UILabel alloc]initWithFrame:CGRectMake(10, 240, 70, 70)];
     self.labelCarColor.font = [UIFont systemFontOfSize:16];
     self.labelCarColor.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarColor.text = @"颜 色 :";
@@ -139,7 +161,7 @@
     
     
     
-    self.labelCarJiaHao = [[UILabel alloc]initWithFrame:CGRectMake(10, 340, 70, 70)];
+    self.labelCarJiaHao = [[UILabel alloc]initWithFrame:CGRectMake(10, 280, 70, 70)];
     self.labelCarJiaHao.font = [UIFont systemFontOfSize:16];
     self.labelCarJiaHao.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarJiaHao.text = @"车 架 号 :";
@@ -149,7 +171,7 @@
     
     
     
-    self.labelCarFaDongJi = [[UILabel alloc]initWithFrame:CGRectMake(10, 380, 70, 70)];
+    self.labelCarFaDongJi = [[UILabel alloc]initWithFrame:CGRectMake(10, 320, 70, 70)];
     self.labelCarFaDongJi.font = [UIFont systemFontOfSize:16];
     self.labelCarFaDongJi.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarFaDongJi.text = @"发动机号:";
@@ -159,7 +181,7 @@
     
     
     
-    self.labelSIM = [[UILabel alloc]initWithFrame:CGRectMake(10, 420, 70, 70)];
+    self.labelSIM = [[UILabel alloc]initWithFrame:CGRectMake(10, 360, 70, 70)];
     self.labelSIM.font = [UIFont systemFontOfSize:16];
     self.labelSIM.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelSIM.text = @"SIM卡号:";
@@ -167,7 +189,7 @@
 
     
     
-    self.labelZhongDuan = [[UILabel alloc]initWithFrame:CGRectMake(10, 460, 70, 70)];
+    self.labelZhongDuan = [[UILabel alloc]initWithFrame:CGRectMake(10, 400, 70, 70)];
     self.labelZhongDuan.font = [UIFont systemFontOfSize:16];
     self.labelZhongDuan.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelZhongDuan.text = @"终 端 号:";
@@ -176,7 +198,7 @@
     
     
     
-    self.labelCarXian = [[UILabel alloc]initWithFrame:CGRectMake(10, 500, 90, 70)];
+    self.labelCarXian = [[UILabel alloc]initWithFrame:CGRectMake(10, 440, 90, 70)];
     self.labelCarXian.font = [UIFont systemFontOfSize:16];
     self.labelCarXian.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelCarXian.text = @"车险有效期:";
@@ -186,7 +208,7 @@
     
     
     
-    self.labelJiaZhao = [[UILabel alloc]initWithFrame:CGRectMake(10, 540, 90, 70)];
+    self.labelJiaZhao = [[UILabel alloc]initWithFrame:CGRectMake(10, 480, 90, 70)];
     self.labelJiaZhao.font = [UIFont systemFontOfSize:16];
     self.labelJiaZhao.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labelJiaZhao.text = @"驾照有效期:";
@@ -196,12 +218,11 @@
     
     
     
-    self.labeleBeiZhu = [[UILabel alloc]initWithFrame:CGRectMake(10, 580, 70, 70)];
+    self.labeleBeiZhu = [[UILabel alloc]initWithFrame:CGRectMake(10, 520, 70, 70)];
     self.labeleBeiZhu.font = [UIFont systemFontOfSize:16];
     self.labeleBeiZhu.textColor = [UIColor colorWithHexString:@"#333333"];
     self.labeleBeiZhu.text = @"备 注 :";
     [self.view addSubview:self.labeleBeiZhu];
-    
     
     
 }
@@ -215,7 +236,7 @@
 {
     _textFieldCarPersonName = [UITextField new];
     _textFieldCarPersonName.delegate = self;
-    _textFieldCarPersonName.frame = CGRectMake(90, 80, 270, 30);
+    _textFieldCarPersonName.frame = CGRectMake(90, 20, 270, 30);
     _textFieldCarPersonName.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldCarPersonName.layer.borderWidth = 1;
     _textFieldCarPersonName.layer.cornerRadius = 2;
@@ -226,7 +247,7 @@
     
     _textFieldCarNumber = [UITextField new];
     _textFieldCarNumber.delegate = self;
-    _textFieldCarNumber.frame = CGRectMake(90, 120, 270, 30);
+    _textFieldCarNumber.frame = CGRectMake(90, 60, 270, 30);
     _textFieldCarNumber.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldCarNumber.layer.borderWidth = 1;
     _textFieldCarNumber.layer.cornerRadius = 2;
@@ -237,7 +258,7 @@
     
     _textFieldPhoneNumber = [UITextField new];
     _textFieldPhoneNumber.delegate = self;
-    _textFieldPhoneNumber.frame = CGRectMake(90, 160, 270, 30);
+    _textFieldPhoneNumber.frame = CGRectMake(90, 100, 270, 30);
     _textFieldPhoneNumber.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldPhoneNumber.layer.borderWidth = 1;
     _textFieldPhoneNumber.layer.cornerRadius = 2;
@@ -249,7 +270,7 @@
     
     
     _labelSecCarLogo = [UILabel new];
-    _labelSecCarLogo.frame = CGRectMake(90, 200, 240, 30);
+    _labelSecCarLogo.frame = CGRectMake(90, 140, 240, 30);
     _labelSecCarLogo.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _labelSecCarLogo.layer.borderWidth = 1;
     _labelSecCarLogo.layer.cornerRadius = 2;
@@ -267,7 +288,7 @@
     self.buttonCarsLogo.layer.masksToBounds = YES;
     self.buttonCarsLogo.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
     [self.buttonCarsLogo setImage:[UIImage imageNamed:@"向下按钮"] forState:UIControlStateNormal];
-    self.buttonCarsLogo.frame = CGRectMake(329, 200, 30, 30);
+    self.buttonCarsLogo.frame = CGRectMake(329, 140, 30, 30);
     [self.view addSubview:self.buttonCarsLogo];
     [self.buttonCarsLogo addTarget:self action:@selector(clickLogo:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -277,7 +298,7 @@
     
     
     _labelSecCarSize = [UILabel new];
-    _labelSecCarSize.frame = CGRectMake(90, 240, 240, 30);
+    _labelSecCarSize.frame = CGRectMake(90, 180, 240, 30);
     _labelSecCarSize.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _labelSecCarSize.layer.borderWidth = 1;
     _labelSecCarSize.layer.cornerRadius = 2;
@@ -294,7 +315,7 @@
     self.buttonCarSize.layer.masksToBounds = YES;
     self.buttonCarSize.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
     [self.buttonCarSize setImage:[UIImage imageNamed:@"向下按钮"] forState:UIControlStateNormal];
-    self.buttonCarSize.frame = CGRectMake(329, 240, 30, 30);
+    self.buttonCarSize.frame = CGRectMake(329, 180, 30, 30);
     [self.view addSubview:self.buttonCarSize];
     [self.buttonCarSize addTarget:self action:@selector(clickSize:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -307,7 +328,7 @@
     
     
     _labelSecCarPaiLiang = [UILabel new];
-    _labelSecCarPaiLiang.frame = CGRectMake(90, 280, 240, 30);
+    _labelSecCarPaiLiang.frame = CGRectMake(90, 220, 240, 30);
     _labelSecCarPaiLiang.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _labelSecCarPaiLiang.layer.borderWidth = 1;
     _labelSecCarPaiLiang.layer.cornerRadius = 2;
@@ -319,14 +340,13 @@
     
     
     
-    
     self.buttonCarPaiLiang = [UIButton buttonWithType:UIButtonTypeCustom];
     self.buttonCarPaiLiang.layer.borderWidth = 1;
     self.buttonCarPaiLiang.layer.cornerRadius = 2;
     self.buttonCarPaiLiang.layer.masksToBounds = YES;
     self.buttonCarPaiLiang.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
     [self.buttonCarPaiLiang setImage:[UIImage imageNamed:@"向下按钮"] forState:UIControlStateNormal];
-    self.buttonCarPaiLiang.frame = CGRectMake(329, 280, 30, 30);
+    self.buttonCarPaiLiang.frame = CGRectMake(329, 220, 30, 30);
     [self.view addSubview:self.buttonCarPaiLiang];
     [self.buttonCarPaiLiang addTarget:self action:@selector(clickPaiLiang:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -337,7 +357,7 @@
     
     _textFieldCarColor = [UITextField new];
     _textFieldCarColor.delegate = self;
-    _textFieldCarColor.frame = CGRectMake(90, 320, 270, 30);
+    _textFieldCarColor.frame = CGRectMake(90, 260, 270, 30);
     _textFieldCarColor.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldCarColor.layer.borderWidth = 1;
     _textFieldCarColor.layer.cornerRadius = 2;
@@ -352,7 +372,7 @@
     
     _textFieldCarJiaHao = [UITextField new];
     _textFieldCarJiaHao.delegate = self;
-    _textFieldCarJiaHao.frame = CGRectMake(90, 360, 270, 30);
+    _textFieldCarJiaHao.frame = CGRectMake(90, 300, 270, 30);
     _textFieldCarJiaHao.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldCarJiaHao.layer.borderWidth = 1;
     _textFieldCarJiaHao.layer.cornerRadius = 2;
@@ -367,7 +387,7 @@
     
     _textFieldCarFaDongJi = [UITextField new];
     _textFieldCarFaDongJi.delegate = self;
-    _textFieldCarFaDongJi.frame = CGRectMake(90, 400, 270, 30);
+    _textFieldCarFaDongJi.frame = CGRectMake(90, 340, 270, 30);
     _textFieldCarFaDongJi.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldCarFaDongJi.layer.borderWidth = 1;
     _textFieldCarFaDongJi.layer.cornerRadius = 2;
@@ -382,7 +402,7 @@
     
     _textFieldSIM = [UITextField new];
     _textFieldSIM.delegate = self;
-    _textFieldSIM.frame = CGRectMake(90, 440, 270, 30);
+    _textFieldSIM.frame = CGRectMake(90, 380, 270, 30);
     _textFieldSIM.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldSIM.layer.borderWidth = 1;
     _textFieldSIM.layer.cornerRadius = 2;
@@ -395,7 +415,7 @@
     
     _textFieldBeiZhu = [UITextField new];
     _textFieldBeiZhu.delegate = self;
-    _textFieldBeiZhu.frame = CGRectMake(90, 600, 270, 60);
+    _textFieldBeiZhu.frame = CGRectMake(90, 540, 270, 60);
     _textFieldBeiZhu.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldBeiZhu.layer.borderWidth = 1;
     _textFieldBeiZhu.layer.cornerRadius = 2;
@@ -405,7 +425,7 @@
 
     
     
-    _textFieldZhongDuan = [[UITextField alloc]initWithFrame:CGRectMake(90, 480, 130, 30)];
+    _textFieldZhongDuan = [[UITextField alloc]initWithFrame:CGRectMake(90, 420, 130, 30)];
     _textFieldZhongDuan.delegate = self;
     _textFieldZhongDuan.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _textFieldZhongDuan.layer.borderWidth = 1;
@@ -416,9 +436,74 @@
 
     
     
+    _labelStarts = [[UILabel alloc]init];
+    _labelStarts.frame = CGRectMake(100, 460, 100, 30);
+    _labelStarts.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelStarts.layer.borderWidth = 1;
+    _labelStarts.layer.cornerRadius = 2;
+    _labelStarts.layer.masksToBounds = YES;
+    _labelStarts.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelStarts];
+
+    
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(210, 460, 30, 30)];
+    label.textColor = [UIColor colorWithRed:162/255.0 green:162/255.0 blue:163/255.0 alpha:1];
+    label.font = [UIFont systemFontOfSize:13];
+    label.text = @"至";
+    [self.view addSubview:label];
+    
+    
+    _labelStartsSec = [[UILabel alloc]init];
+    _labelStartsSec.frame = CGRectMake(230, 460, 130, 30);
+    _labelStartsSec.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelStartsSec.layer.borderWidth = 1;
+    _labelStartsSec.layer.cornerRadius = 2;
+    _labelStartsSec.layer.masksToBounds = YES;
+    _labelStartsSec.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelStartsSec];
+    
+    
+    
+    
+    
+    _labelEnds = [[UILabel alloc]init];
+    _labelEnds.frame = CGRectMake(100, 500, 100, 30);
+    _labelEnds.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelEnds.layer.borderWidth = 1;
+    _labelEnds.layer.cornerRadius = 2;
+    _labelEnds.layer.masksToBounds = YES;
+    _labelEnds.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelEnds];
+    
+    
+    
+    UILabel *labels = [[UILabel alloc]initWithFrame:CGRectMake(210, 500, 30, 30)];
+    labels.textColor = [UIColor colorWithRed:162/255.0 green:162/255.0 blue:163/255.0 alpha:1];
+    labels.font = [UIFont systemFontOfSize:13];
+    labels.text = @"至";
+    [self.view addSubview:labels];
+
+
+    
+    
+    
+    _labelEndsSec = [[UILabel alloc]init];
+    _labelEndsSec.frame = CGRectMake(230, 500, 130, 30);
+    _labelEndsSec.backgroundColor = [UIColor colorWithHexString:@"6666666"];
+    _labelEndsSec.layer.borderWidth = 1;
+    _labelEndsSec.layer.cornerRadius = 2;
+    _labelEndsSec.layer.masksToBounds = YES;
+    _labelEndsSec.layer.borderColor = [UIColor colorWithWhite:0.722 alpha:1.000].CGColor;
+    [self.view addSubview:self.labelEndsSec];
+    
+    
+    
+    
+    
     
     _buttonErWeiMa = [UIButton buttonWithType:UIButtonTypeCustom];
-    _buttonErWeiMa.frame = CGRectMake(230, 480, 130, 30);
+    _buttonErWeiMa.frame = CGRectMake(230, 420, 130, 30);
     [self.buttonErWeiMa setImage:[UIImage imageNamed:@"扫描"] forState:UIControlStateNormal];
     _buttonErWeiMa.backgroundColor = [UIColor colorWithHexString:@"6666666"];
     _buttonErWeiMa.layer.borderWidth = 1;
