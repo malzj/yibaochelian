@@ -59,6 +59,7 @@
 		1F4BD3781C43A5A4007CB73B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BD3771C43A5A4007CB73B /* UIColor+Hex.m */; };
 		1FDAB7B91C4C9A4600D3FE3D /* SelfCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDAB7B81C4C9A4600D3FE3D /* SelfCheckViewController.m */; };
 		1FDAB7BD1C4CD4CB00D3FE3D /* TroubleDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDAB7BC1C4CD4CB00D3FE3D /* TroubleDescViewController.m */; };
+		1FF771791C4E0E050036733E /* DriveScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF771781C4E0E040036733E /* DriveScoreViewController.m */; };
 		7CEF40AB84481B90FF7C1DB4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FAB07EA7E98BC2C7DE0A2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,8 @@
 		1FDAB7B81C4C9A4600D3FE3D /* SelfCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelfCheckViewController.m; sourceTree = "<group>"; };
 		1FDAB7BB1C4CD4CB00D3FE3D /* TroubleDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TroubleDescViewController.h; sourceTree = "<group>"; };
 		1FDAB7BC1C4CD4CB00D3FE3D /* TroubleDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TroubleDescViewController.m; sourceTree = "<group>"; };
+		1FF771771C4E0E040036733E /* DriveScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriveScoreViewController.h; sourceTree = "<group>"; };
+		1FF771781C4E0E040036733E /* DriveScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriveScoreViewController.m; sourceTree = "<group>"; };
 		2C39EF48ABB6DE08E261D5D6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C70FAB07EA7E98BC2C7DE0A2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F661007D6D0E721AF473F85C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 		133F0AFB1C3C9730006CB443 /* NeZhaGo */ = {
 			isa = PBXGroup;
 			children = (
+				1FF771761C4E0DF40036733E /* DriveScore */,
 				1FDAB7AD1C4C98DF00D3FE3D /* SelfCheck */,
 				13C105AC1C44D844008B19D9 /* NeZhaManager */,
 				13C105981C44C659008B19D9 /* CarManager */,
@@ -665,6 +669,15 @@
 			path = "故障描述";
 			sourceTree = "<group>";
 		};
+		1FF771761C4E0DF40036733E /* DriveScore */ = {
+			isa = PBXGroup;
+			children = (
+				1FF771771C4E0E040036733E /* DriveScoreViewController.h */,
+				1FF771781C4E0E040036733E /* DriveScoreViewController.m */,
+			);
+			path = DriveScore;
+			sourceTree = "<group>";
+		};
 		862E5C44B1228C0B7AA44D1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +887,7 @@
 				13C105D21C44D844008B19D9 /* MetalViewController.m in Sources */,
 				1F4BD3781C43A5A4007CB73B /* UIColor+Hex.m in Sources */,
 				13C105CF1C44D844008B19D9 /* VehicleCleanViewController.m in Sources */,
+				1FF771791C4E0E050036733E /* DriveScoreViewController.m in Sources */,
 				13C105A71C44C659008B19D9 /* TourManagerViewController.m in Sources */,
 				1FDAB7BD1C4CD4CB00D3FE3D /* TroubleDescViewController.m in Sources */,
 				13C105AB1C44C659008B19D9 /* TourManagerView.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "SelfCheckViewController.h"
+#import "TroubleDescViewController.h"
 #import "UIColor+Hex.h"
 #import "Masonry.h"
 
@@ -185,6 +186,8 @@
 {
     if (button.tag == 56) {
         NSLog(@"故障描述");
+        TroubleDescViewController *troubleDescVC = [TroubleDescViewController new];
+        [self.navigationController pushViewController:troubleDescVC animated:YES];
     }
     else
     {
