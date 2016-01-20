@@ -10,6 +10,7 @@
 #import "OneKeyServiceViewController.h"
 #import "SOSViewController.h"
 #import "ProgressQueryViewController.h"
+#import "MaintainRecordViewController.h"
 #import "masonry.h"
 #import "LDProgressView.h"
 #import "UIColor+Hex.h"
@@ -65,12 +66,14 @@
 
 - (void)DataZone
 {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(search:)];
     _dataZoneView = [UIView new];
     _dataZoneView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
     _dataZoneView.layer.borderWidth = 1;
     _dataZoneView.layer.borderColor = [[UIColor colorWithHexString:@"bcbcbc"] CGColor];
     _dataZoneView.layer.cornerRadius = 2;
     _dataZoneView.layer.masksToBounds = YES;
+//    _dataZoneView.userInteractionEnabled = YES;
     [_sv addSubview:_dataZoneView];
     
     [_dataZoneView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -205,9 +208,9 @@
     }];
     
     UILabel *nxtPro = [UILabel new];
-    UILabel *recommendSet = [UILabel new];
+    UIButton *recommendSet = [UIButton buttonWithType:UIButtonTypeSystem];
     UILabel *maintenanceRecord = [UILabel new];
-    UILabel *recordSearch = [UILabel new];
+    UIButton *recordSearch = [UIButton buttonWithType:UIButtonTypeSystem];
 
     nxtPro.text = @"下次保养项目:";
     nxtPro.textColor = [UIColor colorWithHexString:@"#444444"];
@@ -215,11 +218,12 @@
     CGSize size3 = [nxtPro.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
     [_dataZoneView addSubview:nxtPro];
     
-    recommendSet.text = @"推荐套餐";
-    recommendSet.textColor = [UIColor colorWithHexString:@"#0CA69C"];
-    recommendSet.font = [UIFont systemFontOfSize:16];
-    CGSize size4 = [recommendSet.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
-//    recommendSet addGestureRecognizer:
+    [recommendSet setTitle:@"推荐套餐" forState:UIControlStateNormal];
+    [recommendSet setTitleColor:[UIColor colorWithHexString:@"#0CA69C"] forState:UIControlStateNormal];
+    recommendSet.titleLabel.font = [UIFont systemFontOfSize:16];
+    recommendSet.tag = 1004;
+    CGSize size4 = [recommendSet.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
+    [recommendSet addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
     [_dataZoneView addSubview:recommendSet];
     
     [nxtPro mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -241,10 +245,12 @@
 //    CGSize size5 = [maintenanceRecord.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14]}];
     [_dataZoneView addSubview:maintenanceRecord];
     
-    recordSearch.text = @"查询";
-    recordSearch.textColor = [UIColor colorWithHexString:@"#0CA69C"];
-    recordSearch.font = [UIFont systemFontOfSize:16];
-    CGSize size6 = [recordSearch.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
+    [recordSearch setTitle:@"查询" forState:UIControlStateNormal];
+    [recordSearch setTitleColor:[UIColor colorWithHexString:@"#0CA69C"] forState:UIControlStateNormal];
+    recordSearch.titleLabel.font = [UIFont systemFontOfSize:16];
+    recordSearch.tag = 1002;
+    CGSize size6 = [recordSearch.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:16]}];
+    [recordSearch addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
     [_dataZoneView addSubview:recordSearch];
     
     [maintenanceRecord mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -258,6 +264,25 @@
         make.bottom.equalTo(recommendSet);
         make.size.mas_equalTo(size6);
     }];
+}
+
+- (void)search:(UIButton *)button
+{
+    switch (button.tag) {
+        case 1004:
+        {
+            NSLog(@"推荐套餐");
+        }
+            break;
+        case 1002:
+        {
+            MaintainRecordViewController *maintainRecordVC = [MaintainRecordViewController new];
+            [self.navigationController pushViewController:maintainRecordVC animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark 剩余区域

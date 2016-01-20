@@ -56,6 +56,7 @@
 		13EEAC0C1C3E08A2006989BD /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEAC0B1C3E08A2006989BD /* MapTableViewCell.m */; };
 		13EEAC891C3F577E006989BD /* LeftMassageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEAC881C3F577E006989BD /* LeftMassageViewController.m */; };
 		13EEAC8C1C3F6983006989BD /* LeftMassageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EEAC8B1C3F6983006989BD /* LeftMassageCollectionViewCell.m */; };
+		1F04963D1C4F164B00E33F8E /* MaintainRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F04963C1C4F164B00E33F8E /* MaintainRecordViewController.m */; };
 		1F4BD3781C43A5A4007CB73B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BD3771C43A5A4007CB73B /* UIColor+Hex.m */; };
 		1FDAB7B91C4C9A4600D3FE3D /* SelfCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDAB7B81C4C9A4600D3FE3D /* SelfCheckViewController.m */; };
 		1FDAB7BD1C4CD4CB00D3FE3D /* TroubleDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDAB7BC1C4CD4CB00D3FE3D /* TroubleDescViewController.m */; };
@@ -179,6 +180,8 @@
 		13EEAC881C3F577E006989BD /* LeftMassageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMassageViewController.m; sourceTree = "<group>"; };
 		13EEAC8A1C3F6983006989BD /* LeftMassageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMassageCollectionViewCell.h; sourceTree = "<group>"; };
 		13EEAC8B1C3F6983006989BD /* LeftMassageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMassageCollectionViewCell.m; sourceTree = "<group>"; };
+		1F04963B1C4F164B00E33F8E /* MaintainRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaintainRecordViewController.h; sourceTree = "<group>"; };
+		1F04963C1C4F164B00E33F8E /* MaintainRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaintainRecordViewController.m; sourceTree = "<group>"; };
 		1F4BD3761C43A5A4007CB73B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		1F4BD3771C43A5A4007CB73B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		1FDAB7B71C4C9A4600D3FE3D /* SelfCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelfCheckViewController.h; sourceTree = "<group>"; };
@@ -646,6 +649,8 @@
 		1F4BD37B1C47700D007CB73B /* 保养记录 */ = {
 			isa = PBXGroup;
 			children = (
+				1F04963B1C4F164B00E33F8E /* MaintainRecordViewController.h */,
+				1F04963C1C4F164B00E33F8E /* MaintainRecordViewController.m */,
 			);
 			path = "保养记录";
 			sourceTree = "<group>";
@@ -885,6 +890,7 @@
 				133F0AD01C3C1955006CB443 /* ViewController.m in Sources */,
 				133F0B3C1C3CAF0C006CB443 /* MyMassageViewController.m in Sources */,
 				13C105D21C44D844008B19D9 /* MetalViewController.m in Sources */,
+				1F04963D1C4F164B00E33F8E /* MaintainRecordViewController.m in Sources */,
 				1F4BD3781C43A5A4007CB73B /* UIColor+Hex.m in Sources */,
 				13C105CF1C44D844008B19D9 /* VehicleCleanViewController.m in Sources */,
 				1FF771791C4E0E050036733E /* DriveScoreViewController.m in Sources */,
