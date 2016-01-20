@@ -66,7 +66,6 @@
 
 - (void)DataZone
 {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(search:)];
     _dataZoneView = [UIView new];
     _dataZoneView.backgroundColor = [UIColor colorWithHexString:@"#FFFFFF"];
     _dataZoneView.layer.borderWidth = 1;
@@ -268,10 +267,88 @@
 
 - (void)search:(UIButton *)button
 {
+    UIView *backView = [UIView new];
+    UIView *recommendSetView = [UIView new];
+    UIButton *btnClose = [UIButton buttonWithType:UIButtonTypeCustom];
+    UILabel *recommendTitle = [UILabel new];
+    UIView *lineView = [UIView new];
+    UILabel *addTitle = [UILabel new];
+    
     switch (button.tag) {
         case 1004:
         {
             NSLog(@"推荐套餐");
+            backView.backgroundColor = [UIColor colorWithHexString:@"000000" alpha:0.5];
+            [[UIApplication sharedApplication].keyWindow addSubview:backView];
+            self.upView = backView;
+            [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(@0);
+                make.left.equalTo(@0);
+                make.right.equalTo(@0);
+                make.bottom.equalTo(@0);
+            }];
+
+            recommendSetView.backgroundColor = [UIColor whiteColor];
+            recommendSetView.layer.cornerRadius = 5;
+            recommendSetView.tag = 1000;
+            recommendSetView.layer.masksToBounds = YES;
+            [backView addSubview:recommendSetView];
+            
+            [recommendSetView mas_makeConstraints:^(MASConstraintMaker *make) {
+                //make.center.equalTo(backView);
+                //make.height.equalTo(sosView.mas_width);
+                make.left.equalTo(@15);
+                make.right.equalTo(@-15);
+                make.top.equalTo(@80);
+                make.bottom.equalTo(@-80);
+            }];
+
+            recommendTitle.text = @"推荐项目";
+            recommendTitle.textAlignment = NSTextAlignmentCenter;
+            recommendTitle.textColor = [UIColor whiteColor];
+            recommendTitle.backgroundColor = [UIColor colorWithHexString:@"0CA69C"];
+            recommendTitle.userInteractionEnabled = YES;
+            [recommendSetView addSubview:recommendTitle];
+            
+            [recommendTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(recommendSetView);
+                make.height.equalTo(@50);
+                make.left.equalTo(@0);
+                make.top.equalTo(@0);
+            }];
+            
+            [btnClose setImage:[UIImage imageNamed:@"离线-1"] forState:UIControlStateNormal];
+            btnClose.tag = 103;
+            [btnClose addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            [recommendSetView addSubview:btnClose];
+            
+            [btnClose mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.equalTo(recommendTitle);
+                make.right.equalTo(@-10);
+                make.size.mas_equalTo(CGSizeMake(15, 15));
+            }];
+            
+            lineView.backgroundColor = [UIColor colorWithHexString:@"0CA69C"];
+            [recommendSetView addSubview:lineView];
+            
+            [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.width.equalTo(recommendSetView);
+                make.top.equalTo(recommendTitle.mas_bottom).with.offset(80);
+                make.left.equalTo(@0);
+                make.height.equalTo(@1);
+            }];
+            
+            addTitle.text = @"添加项目";
+            addTitle.textColor = [UIColor colorWithHexString:@"0CA69C"];
+            addTitle.font = [UIFont systemFontOfSize:16];
+            CGSize addTitleSize = [addTitle.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
+            [recommendSetView addSubview:addTitle];
+            
+            [addTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(lineView.mas_bottom).with.offset(5);
+                make.centerX.equalTo(lineView);
+                make.size.mas_equalTo(addTitleSize);
+            }];
         }
             break;
         case 1002:

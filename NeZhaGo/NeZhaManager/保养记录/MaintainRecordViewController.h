@@ -10,4 +10,6 @@
 
 @interface MaintainRecordViewController : BaseViewController
 
+@property(nonatomic, strong)UIView *headerView;
+
 @end
