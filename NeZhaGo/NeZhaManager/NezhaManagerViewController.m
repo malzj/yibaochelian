@@ -24,6 +24,7 @@
     //UIView *_progressView;
     //LDProgressView *_progress;
     UIView *_dataZoneView;
+    UIButton *_btnCommit;
 
 }
 @end
@@ -273,6 +274,7 @@
     UILabel *recommendTitle = [UILabel new];
     UIView *lineView = [UIView new];
     UILabel *addTitle = [UILabel new];
+    _btnCommit = [UIButton buttonWithType:UIButtonTypeSystem];
     
     switch (button.tag) {
         case 1004:
@@ -349,6 +351,35 @@
                 make.centerX.equalTo(lineView);
                 make.size.mas_equalTo(addTitleSize);
             }];
+            
+            /**
+             self.btn_Reload = [UIButton buttonWithType:UIButtonTypeSystem];
+             self.btn_Reload.layer.cornerRadius = 4;
+             self.btn_Reload.layer.masksToBounds = YES;
+             [self.btn_Reload setTitle:@"刷新数据" forState:UIControlStateNormal];
+             self.btn_Reload.backgroundColor = [UIColor colorWithHexString:@"#FFAB48"];
+             [self.btn_Reload setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+             self.btn_Reload.titleLabel.font = [UIFont systemFontOfSize:18];
+             [self.btn_Reload addObserver:self forKeyPath:@"highlighted" options:NSKeyValueObservingOptionNew context:NULL];//kvo
+             [self.bgView addSubview:self.btn_Reload];
+             */
+            _btnCommit.layer.cornerRadius = 4;
+            _btnCommit.layer.masksToBounds = YES;
+            [_btnCommit setTitle:@"确定" forState:UIControlStateNormal];
+            _btnCommit.backgroundColor = [UIColor colorWithHexString:@"#FFAB48"];
+            [_btnCommit setTitleColor:[UIColor colorWithHexString:@"#FFFFFF"] forState:UIControlStateNormal];
+            _btnCommit.titleLabel.font = [UIFont systemFontOfSize:18];
+            _btnCommit.tag = 106;
+            [_btnCommit addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+            //[_btnCommit addObserver:self forKeyPath:@"highlighted" options:NSKeyValueObservingOptionNew context:NULL];   //kvo
+            [recommendSetView addSubview:_btnCommit];
+            
+            [_btnCommit mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(@5);
+                make.right.equalTo(@-5);
+                make.bottom.equalTo(@-15);
+                make.height.equalTo(@40);
+            }];
         }
             break;
         case 1002:
@@ -361,6 +392,25 @@
             break;
     }
 }
+
+//-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+//{
+//    
+//    UIButton * button = (UIButton *)object;
+//    if ([[change objectForKey:@"new"] integerValue] == 1) {
+//        button.backgroundColor = [UIColor colorWithHexString:@"#ec9734"];
+//    }
+//    else
+//    {
+//        button.backgroundColor = [UIColor colorWithHexString:@"#FFAB48"];
+//    }
+//    
+//}
+
+//- (void)dealloc
+//{
+//    [_btnCommit removeObserver:self forKeyPath:@"highlighted"];
+//}
 
 #pragma mark 剩余区域
 - (void)ValidDateZone
@@ -765,6 +815,9 @@
             break;
         case 105:
             NSLog(@"紧急救援");
+            break;
+        case 106:
+            NSLog(@"确定");
             break;
             
         default:
