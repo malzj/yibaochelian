@@ -22,11 +22,14 @@
 #import "JumpPage.h"
 
 
+#import <AMapSearchKit/AMapSearchKit.h>
 
-@interface ViewController ()<MAMapViewDelegate,UITableViewDataSource,UITableViewDelegate>
+
+
+@interface ViewController ()<MAMapViewDelegate,UITableViewDataSource,UITableViewDelegate,AMapSearchDelegate>
 {
     MAMapView *_mapView;
-    double _page ;
+    AMapSearchAPI *_search;
 }
 
 @property (nonatomic ,strong)UILabel *LabelTitle;
@@ -57,6 +60,7 @@
 @property (nonatomic ,assign) BOOL isSaves;
 @property (nonatomic ,strong)UIButton *buttonWatch;
 @property (nonatomic ,assign)BOOL isSave;
+@property (nonatomic ,assign)BOOL isSeves;
 @property (nonatomic ,strong)UIView *viewWatch;
 @property (nonatomic ,strong)UIButton *buttonViewDown;
 @property (nonatomic ,strong)UIView *viewWatchBig;
@@ -79,6 +83,8 @@
 @property (nonatomic ,strong)NSMutableArray *arrBMW;
 
 
+@property (nonatomic ,strong)CLLocationManager *locationManager;
+
 @end
 @implementation ViewController
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -91,6 +97,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
+    
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     self.LabelTitle = [UILabel new];
@@ -99,16 +110,28 @@
     self.LabelTitle.textColor = [UIColor colorWithHexString:@"#FFFFFF"];
     [self.LabelTitle sizeToFit];
     self.navigationItem.titleView = self.LabelTitle;
+    
+    
     [MAMapServices sharedServices].apiKey = @"bea548341ba5b2f97b2bb58ffcc60e4e";
     _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
-    
     _mapView.delegate = self;
+    
+    _mapView.showsUserLocation = YES;
+    
+    
+    
     [self.view addSubview:_mapView];
+    
+    
+    
+    
     [self createButtonWatch];
     [self createViewTab];
     [self createButton];
     [self createButtonLeft];
     [self createRightButton];
+    
+    
     
     
     
@@ -124,6 +147,10 @@
         
 
 }
+
+
+
+
 
 
 
@@ -412,21 +439,51 @@
 - (void)clickLocation:(UIButton *)button
 {
     NSLog(@"location");
-    
-    
+
 }
+
+
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
+{
+    if (updatingLocation) {
+    
+        NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+    }
+}
+
 
 - (void)clickLight :(UIButton *)button
 {
     NSLog(@"light");
+    
+    
+    if (self.isSeves == YES) {
+        _mapView.showTraffic= NO;
+    }else{
+        _mapView.showTraffic= YES;
+    }
+    
+    self.isSeves = !self.isSeves;
+
+    
+    
+    
+    
 }
 - (void)clickMy :(UIButton *)button
 {
     NSLog(@"my");
+    //卫星图
+    //_mapView.mapType = MAMapTypeSatellite;
+
+    
+    
 }
 - (void)clickCar :(UIButton *)button
 {
     NSLog(@"car");
+    
+    
 }
 
 - (void)clickAdd :(UIButton *)button
